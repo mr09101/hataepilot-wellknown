@@ -24,10 +24,16 @@ jobs:
       - name: 수집 (표준 라이브러리만 사용, 약 1분)
         run: python scripts/fetch_cameras.py
 
-      - name: 변경 여부
+      - name: 변경 여부 (파일 바이트가 아니라 version+count로 판정)
         id: diff
+        # 같은 원본이라도 SQLite를 다시 만들면 바이트가 달라진다. 포털 수정일(version)이나 건수가
+        # 바뀐 경우에만 커밋해야 매달 5MB가 쌓이지 않는다.
         run: |
-          if git diff --quiet -- data/cameras.db data/cameras.json; then
+          OLD=$(git show HEAD:data/cameras.json 2>/dev/null | python -c "import sys,json;d=json.load(sys.stdin);print(d['version'],d['count'])" 2>/dev/null || echo none)
+          NEW=$(python -c "import json;d=json.load(open('data/cameras.json'));print(d['version'],d['count'])")
+          echo "old=$OLD new=$NEW"
+          if [ "$OLD" = "$NEW" ]; then
+            git checkout -- data/
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
