@@ -14,7 +14,9 @@ import json
 import re
 import sqlite3
 import sys
+import time
 from datetime import date
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -38,10 +40,21 @@ KEEP = {
 }
 
 
-def http_get(url: str) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return resp.read()
+def http_get(url: str, retries: int = 3) -> bytes:
+    """포털이 간헐적으로 느리다(GitHub Actions에서 60초 타임아웃 실측). 실패하면 30·60초 쉬고 재시도한다."""
+    last: Exception | None = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return resp.read()
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last = e
+            if attempt < retries - 1:
+                wait = 30 * (attempt + 1)
+                print(f"  요청 실패({e}); {wait}초 뒤 재시도 {attempt + 2}/{retries}")
+                time.sleep(wait)
+    raise RuntimeError(f"포털 요청 {retries}회 실패: {last}")
 
 
 def fetch_total() -> int:
