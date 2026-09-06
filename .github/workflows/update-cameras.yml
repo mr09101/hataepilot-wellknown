@@ -1,0 +1,55 @@
+name: 단속카메라 DB 갱신
+
+# 공공데이터포털 '전국무인교통단속카메라표준데이터'(반기 갱신)를 매달 1일 새로 받아
+# data/cameras.db·cameras.json이 바뀐 경우에만 커밋한다. 앱은 GitHub raw URL에서 매니페스트를 읽어
+# 버전이 다르면 db를 내려받는다. Cloudflare Pages 배포는 CLOUDFLARE_API_TOKEN 시크릿이 있을 때만.
+on:
+  schedule:
+    - cron: "0 3 1 * *"   # 매달 1일 12:00 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 수집 (표준 라이브러리만 사용, 약 1분)
+        run: python scripts/fetch_cameras.py
+
+      - name: 변경 여부
+        id: diff
+        run: |
+          if git diff --quiet -- data/cameras.db data/cameras.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 커밋·푸시
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "camera-bot"
+          git config user.email "camera-bot@users.noreply.github.com"
+          VER=$(python -c "import json;print(json.load(open('data/cameras.json'))['version'])")
+          CNT=$(python -c "import json;print(json.load(open('data/cameras.json'))['count'])")
+          git add data/cameras.db data/cameras.json
+          git commit -m "data: 단속카메라 DB 갱신 (${VER}, ${CNT}건)"
+          git push
+
+      - name: Cloudflare Pages 배포 (토큰 있을 때만)
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "CLOUDFLARE_API_TOKEN 시크릿 없음 — GitHub raw로만 배포됨"; exit 0
+          fi
+          npx --yes wrangler@4 pages deploy . --project-name hataepilot --commit-dirty=true
