@@ -1,6 +1,6 @@
 {
  "version": "2026-09-07",
- "count": 302,
+ "count": 478,
  "items": [
   {
    "lat": 37.291582,
@@ -2971,6 +2971,1766 @@
    "limit": 0,
    "since": "2026-04-30",
    "source": "경기남부경찰청 무인교통단속장비 설치장소 ggpolice_cctv_260630"
+  },
+  {
+   "lat": 35.877265,
+   "lon": 128.628683,
+   "name": "동대구역네거리",
+   "sido": "대구광역시",
+   "sigungu": "동구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.873896,
+   "lon": 128.539027,
+   "name": "이현검사소 동측네거리",
+   "sido": "대구광역시",
+   "sigungu": "서구",
+   "limit": 60,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.85602,
+   "lon": 128.619143,
+   "name": "수성시장네거리",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.859932,
+   "lon": 128.614612,
+   "name": "대구은행네거리",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 60,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.808501,
+   "lon": 128.543548,
+   "name": "한국토지주택공사건너",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 60,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.740928,
+   "lon": 128.465851,
+   "name": "평화이엔지앞",
+   "sido": "대구광역시",
+   "sigungu": "달성군",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.870501,
+   "lon": 128.550727,
+   "name": "서대구역화성파크드림723동건너",
+   "sido": "대구광역시",
+   "sigungu": "서구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.870001,
+   "lon": 128.546693,
+   "name": "후기성도교회앞",
+   "sido": "대구광역시",
+   "sigungu": "서구",
+   "limit": 40,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.856041,
+   "lon": 128.626022,
+   "name": "범어롯데캐슬 횡단보도1",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 60,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.85858,
+   "lon": 128.629739,
+   "name": "수성구청 앞1",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 60,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.81316,
+   "lon": 128.519887,
+   "name": "진천역AK그랑폴리스2차@건너",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.808144,
+   "lon": 128.524489,
+   "name": "대곡청구제너스@건너",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 60,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.80739,
+   "lon": 128.53144,
+   "name": "진천남네거리",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.825814,
+   "lon": 128.629439,
+   "name": "동아스포츠센터 앞",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.867093,
+   "lon": 128.632985,
+   "name": "동대구가스충전소 남동측횡단보도",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.816871,
+   "lon": 128.528084,
+   "name": "진천월성위너파크@ 앞",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.818108,
+   "lon": 128.515957,
+   "name": "용천초교 앞",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.831264,
+   "lon": 128.526785,
+   "name": "학산초교 건너",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.846602,
+   "lon": 128.534559,
+   "name": "힐스테이트죽전역더퍼스트@ 앞",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.799813,
+   "lon": 128.499947,
+   "name": "화남초교 건너",
+   "sido": "대구광역시",
+   "sigungu": "달성군",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.877251,
+   "lon": 128.584166,
+   "name": "대구역경남센트로팰리스APT",
+   "sido": "대구광역시",
+   "sigungu": "중구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.864832,
+   "lon": 128.721637,
+   "name": "동호초교 건너",
+   "sido": "대구광역시",
+   "sigungu": "동구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.869853,
+   "lon": 128.729389,
+   "name": "이마트반야월점 200m전",
+   "sido": "대구광역시",
+   "sigungu": "동구",
+   "limit": 60,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.877569,
+   "lon": 128.72043,
+   "name": "새론중학교",
+   "sido": "대구광역시",
+   "sigungu": "동구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.886814,
+   "lon": 128.619746,
+   "name": "동부초교건너",
+   "sido": "대구광역시",
+   "sigungu": "동구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.872091,
+   "lon": 128.561091,
+   "name": "서대구전화국교차로",
+   "sido": "대구광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.874139,
+   "lon": 128.571069,
+   "name": "서부시장 건너",
+   "sido": "대구광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.88178,
+   "lon": 128.579328,
+   "name": "달성초교 건너",
+   "sido": "대구광역시",
+   "sigungu": "서구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.852233,
+   "lon": 128.603656,
+   "name": "봉덕2차화성파크드림",
+   "sido": "대구광역시",
+   "sigungu": "남구",
+   "limit": 0,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.846537,
+   "lon": 128.620813,
+   "name": "황금초등학교교차로",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 50,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.855015,
+   "lon": 128.622873,
+   "name": "제2범어교교차로",
+   "sido": "대구광역시",
+   "sigungu": "수성구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.8637,
+   "lon": 128.523655,
+   "name": "대구세명학교",
+   "sido": "대구광역시",
+   "sigungu": "달서구",
+   "limit": 40,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.661269,
+   "lon": 128.41941,
+   "name": "구지중북서측",
+   "sido": "대구광역시",
+   "sigungu": "달성군",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.699588,
+   "lon": 128.465642,
+   "name": "테크노3초교 앞",
+   "sido": "대구광역시",
+   "sigungu": "달성군",
+   "limit": 40,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.773642,
+   "lon": 128.427313,
+   "name": "금포초교 앞",
+   "sido": "대구광역시",
+   "sigungu": "달성군",
+   "limit": 40,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.901461,
+   "lon": 128.512736,
+   "name": "삼영초교",
+   "sido": "대구광역시",
+   "sigungu": "북구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.934761,
+   "lon": 128.558782,
+   "name": "함지초교 북동측삼거리",
+   "sido": "대구광역시",
+   "sigungu": "북구",
+   "limit": 30,
+   "since": "",
+   "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
+  },
+  {
+   "lat": 35.137528,
+   "lon": 129.100116,
+   "name": "용소삼거리",
+   "sido": "부산광역시",
+   "sigungu": "남구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.160603,
+   "lon": 129.061478,
+   "name": "부전사거리",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.255949,
+   "lon": 129.223976,
+   "name": "기장경찰서앞",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 60,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.205932,
+   "lon": 129.074611,
+   "name": "동래여성인력개발센터 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.207984,
+   "lon": 129.069219,
+   "name": "미남교차로",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.230742,
+   "lon": 129.013004,
+   "name": "주하나교회 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.239541,
+   "lon": 129.090211,
+   "name": "부곡쌍용아파트 101동앞",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.200324,
+   "lon": 129.084503,
+   "name": "동래경찰서앞",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.098111,
+   "lon": 128.920311,
+   "name": "부산은행 명지국제신도시지점앞",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.192807,
+   "lon": 129.083957,
+   "name": "부산은행 연서지점앞",
+   "sido": "부산광역시",
+   "sigungu": "연제구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.169462,
+   "lon": 129.171444,
+   "name": "현대자동차블루핸즈앞",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.255868,
+   "lon": 129.219191,
+   "name": "이진캐스빌블루1차@정문 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.103228,
+   "lon": 129.025817,
+   "name": "BNK부산은행 부평동지점 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "중구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.074617,
+   "lon": 129.075899,
+   "name": "아미르공원앞",
+   "sido": "부산광역시",
+   "sigungu": "영도구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.104323,
+   "lon": 129.019991,
+   "name": "동아대부민캠퍼스 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.172746,
+   "lon": 128.983495,
+   "name": "덕포역 1번출구",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.057368,
+   "lon": 128.970954,
+   "name": "다대포항역1번출구앞",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.101739,
+   "lon": 129.024874,
+   "name": "우리은행 부평동지점앞",
+   "sido": "부산광역시",
+   "sigungu": "중구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.102982,
+   "lon": 129.037584,
+   "name": "연안부두사거리",
+   "sido": "부산광역시",
+   "sigungu": "중구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.105115,
+   "lon": 129.021285,
+   "name": "소일창앞",
+   "sido": "부산광역시",
+   "sigungu": "중구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.105566,
+   "lon": 129.023805,
+   "name": "보수사거리",
+   "sido": "부산광역시",
+   "sigungu": "중구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.110537,
+   "lon": 129.037353,
+   "name": "뚜레쥬르 중앙대로점앞",
+   "sido": "부산광역시",
+   "sigungu": "중구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.093175,
+   "lon": 129.04337,
+   "name": "봉래시장GATE6앞",
+   "sido": "부산광역시",
+   "sigungu": "영도구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.090611,
+   "lon": 129.043542,
+   "name": "영도오션트라움앞",
+   "sido": "부산광역시",
+   "sigungu": "영도구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.094887,
+   "lon": 129.065987,
+   "name": "대흥자원앞",
+   "sido": "부산광역시",
+   "sigungu": "영도구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.095476,
+   "lon": 129.055048,
+   "name": "봉학초등학교앞",
+   "sido": "부산광역시",
+   "sigungu": "영도구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.085314,
+   "lon": 129.076803,
+   "name": "부산환경공단영도사업소앞",
+   "sido": "부산광역시",
+   "sigungu": "영도구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.090311,
+   "lon": 129.038864,
+   "name": "해무꽃앞",
+   "sido": "부산광역시",
+   "sigungu": "영도구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.048656,
+   "lon": 128.969496,
+   "name": "다대해수욕장삼거리",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.08592,
+   "lon": 128.976661,
+   "name": "사하경찰서사거리",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.109312,
+   "lon": 128.966082,
+   "name": "영동힐타운 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.084765,
+   "lon": 128.97766,
+   "name": "사하경찰서사거리",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.100579,
+   "lon": 128.960763,
+   "name": "사하구선거관리위원회 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.082444,
+   "lon": 128.971125,
+   "name": "GS25사하제니스점앞",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.084312,
+   "lon": 128.979765,
+   "name": "HD현대오일뱅크앞",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.094129,
+   "lon": 128.962047,
+   "name": "신평지하철역 6번출구앞",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.087222,
+   "lon": 128.993388,
+   "name": "한빛요양병원앞",
+   "sido": "부산광역시",
+   "sigungu": "사하구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.156095,
+   "lon": 129.045021,
+   "name": "가야1동새마을금고 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.153304,
+   "lon": 129.02919,
+   "name": "가야센트레빌앞",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.168159,
+   "lon": 129.050731,
+   "name": "부암교차로",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.147825,
+   "lon": 129.058904,
+   "name": "범내골교차로",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.157593,
+   "lon": 129.062025,
+   "name": "스타벅스 서전로점 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.147857,
+   "lon": 129.062253,
+   "name": "부산상공회의소 앞",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.162406,
+   "lon": 129.038196,
+   "name": "당감사거리",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.158524,
+   "lon": 129.027341,
+   "name": "대영유통앞",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.173379,
+   "lon": 129.055189,
+   "name": "부산성의신협본점 앞",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.143818,
+   "lon": 129.056709,
+   "name": "범일과선교 진출지점",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.111094,
+   "lon": 129.021312,
+   "name": "동대사거리",
+   "sido": "부산광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.09229,
+   "lon": 129.023816,
+   "name": "현대타운 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.101055,
+   "lon": 129.019222,
+   "name": "경남중학교",
+   "sido": "부산광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.101466,
+   "lon": 129.011264,
+   "name": "경동행복주택아미@104동앞",
+   "sido": "부산광역시",
+   "sigungu": "서구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.113837,
+   "lon": 129.014057,
+   "name": "부경고등학교앞",
+   "sido": "부산광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.089027,
+   "lon": 128.904376,
+   "name": "명지지하차도상부교차로",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 70,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.088991,
+   "lon": 128.880451,
+   "name": "르노자동차남문 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 70,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.089208,
+   "lon": 128.881931,
+   "name": "르노자동차 남문앞",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 70,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.096983,
+   "lon": 128.829492,
+   "name": "28번신호등교차로",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.095872,
+   "lon": 128.829458,
+   "name": "28번신호등교차로",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.084399,
+   "lon": 128.910404,
+   "name": "남명초등학교 잎",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.094915,
+   "lon": 128.922367,
+   "name": "명지대방노블랜드105동앞",
+   "sido": "부산광역시",
+   "sigungu": "강서구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.190551,
+   "lon": 128.992811,
+   "name": "모라중학교 공영주차장앞",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.164222,
+   "lon": 128.983384,
+   "name": "새마을금고괘법점앞",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.149242,
+   "lon": 129.011004,
+   "name": "군자월드앞",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.187232,
+   "lon": 128.988651,
+   "name": "루마썬팅 모라점앞",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.195164,
+   "lon": 128.98508,
+   "name": "흥일주유소 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.191428,
+   "lon": 128.989698,
+   "name": "현대자동차앞",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.140777,
+   "lon": 128.98207,
+   "name": "큰솔병원앞",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.148676,
+   "lon": 128.971468,
+   "name": "효성하이텍 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.167907,
+   "lon": 128.982155,
+   "name": "사상초등학교 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "사상구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.220949,
+   "lon": 129.00777,
+   "name": "멕켄지일신기독병원 앞",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.207288,
+   "lon": 129.006364,
+   "name": "구포시장공영주차장앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.201008,
+   "lon": 128.998022,
+   "name": "구포대교사거리",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.224262,
+   "lon": 129.007197,
+   "name": "한국방송통신대학교",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.206151,
+   "lon": 129.028205,
+   "name": "부산시노인전문제1병원앞",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.211051,
+   "lon": 129.025701,
+   "name": "벽산라인훼미리타운앞",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.213022,
+   "lon": 129.020043,
+   "name": "KT플라자앞",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.235358,
+   "lon": 129.0106,
+   "name": "골든프라자앞",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.134698,
+   "lon": 129.088448,
+   "name": "우리은행대연동금융센터앞",
+   "sido": "부산광역시",
+   "sigungu": "남구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.12155,
+   "lon": 129.084331,
+   "name": "동천삼거리",
+   "sido": "부산광역시",
+   "sigungu": "남구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.101353,
+   "lon": 129.121097,
+   "name": "오륙도SK뷰@후문 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "남구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.13663,
+   "lon": 129.067138,
+   "name": "문현교차로",
+   "sido": "부산광역시",
+   "sigungu": "남구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.130772,
+   "lon": 129.103599,
+   "name": "부산예술회관 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "남구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.148656,
+   "lon": 129.113562,
+   "name": "부산IT아카데미앞",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.16578,
+   "lon": 129.124857,
+   "name": "민락교차로",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.139304,
+   "lon": 129.115113,
+   "name": "남천마리나앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.150667,
+   "lon": 129.110901,
+   "name": "금련산역 2번출구",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.16771,
+   "lon": 129.123866,
+   "name": "맞은편",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.16968,
+   "lon": 129.178547,
+   "name": "NC백화점 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.162136,
+   "lon": 129.185123,
+   "name": "양방향",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.176156,
+   "lon": 129.125846,
+   "name": "센텀IS타워앞",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.22175,
+   "lon": 129.144192,
+   "name": "옹기골삼거리",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.178161,
+   "lon": 129.175282,
+   "name": "대동상가앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.176408,
+   "lon": 129.174222,
+   "name": "대동상가앞",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.23454,
+   "lon": 129.156707,
+   "name": "동선전기 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.173967,
+   "lon": 129.184657,
+   "name": "해운대백병원주차장 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "해운대구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.316702,
+   "lon": 129.178439,
+   "name": "IBK은행앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 60,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.316942,
+   "lon": 129.181196,
+   "name": "IBK은행 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 60,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.19418,
+   "lon": 129.210418,
+   "name": "롯데몰 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.190782,
+   "lon": 129.210475,
+   "name": "롯데몰앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.189079,
+   "lon": 129.208187,
+   "name": "라우어시니어타운앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.268019,
+   "lon": 129.226323,
+   "name": "부산은행일광지점앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.266064,
+   "lon": 129.228184,
+   "name": "부산은행일광지점 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.266317,
+   "lon": 129.225923,
+   "name": "부산은행일광지점앞",
+   "sido": "부산광역시",
+   "sigungu": "기장군",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.111621,
+   "lon": 129.034418,
+   "name": "부산터널삼거리100M전",
+   "sido": "부산광역시",
+   "sigungu": "중구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.152712,
+   "lon": 129.01969,
+   "name": "개금사거리",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.153408,
+   "lon": 129.025166,
+   "name": "새마을금고본점앞",
+   "sido": "부산광역시",
+   "sigungu": "진구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.194341,
+   "lon": 129.094873,
+   "name": "안민초등학교 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.215265,
+   "lon": 129.077078,
+   "name": "동래센트럴파크앞",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.205468,
+   "lon": 129.101064,
+   "name": "명장조양맨션앞",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.204393,
+   "lon": 129.101491,
+   "name": "명장조양맨션 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.203884,
+   "lon": 129.082673,
+   "name": "KT플라자 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.221618,
+   "lon": 129.076664,
+   "name": "부산해양자연사박물관앞",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.214821,
+   "lon": 129.083372,
+   "name": "동래교회앞",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.194401,
+   "lon": 129.093435,
+   "name": "경동리인타워1차 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.197792,
+   "lon": 129.096514,
+   "name": "안락교차로",
+   "sido": "부산광역시",
+   "sigungu": "동래구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.137237,
+   "lon": 129.063331,
+   "name": "범일점앞",
+   "sido": "부산광역시",
+   "sigungu": "동구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.136209,
+   "lon": 129.056189,
+   "name": "금성침대앞",
+   "sido": "부산광역시",
+   "sigungu": "동구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.132048,
+   "lon": 129.052495,
+   "name": "일동미라주202동앞 횡단보도",
+   "sido": "부산광역시",
+   "sigungu": "동구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.122316,
+   "lon": 129.041485,
+   "name": "인창요양병원앞",
+   "sido": "부산광역시",
+   "sigungu": "동구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.119314,
+   "lon": 129.038726,
+   "name": "부산장우신협본점 앞 양방향",
+   "sido": "부산광역시",
+   "sigungu": "동구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.123086,
+   "lon": 129.044132,
+   "name": "경남여중앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "동구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.13828,
+   "lon": 129.056137,
+   "name": "새마을금고앞",
+   "sido": "부산광역시",
+   "sigungu": "동구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.236697,
+   "lon": 129.082968,
+   "name": "부산대학교사거리",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 30,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.233125,
+   "lon": 129.086773,
+   "name": "새마을금고 장전동지점앞",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.228693,
+   "lon": 129.090974,
+   "name": "부산대역삼정그린코아스카이앞",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.223235,
+   "lon": 129.089735,
+   "name": "선거관리위원회앞",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.244933,
+   "lon": 129.084598,
+   "name": "샘물교회앞",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.263124,
+   "lon": 129.085073,
+   "name": "부산과학고등학교입구 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.182348,
+   "lon": 129.115455,
+   "name": "수영센텀강변e편한2차@입구",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.172837,
+   "lon": 129.102695,
+   "name": "부산지방병무청앞교차로",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.158228,
+   "lon": 129.132619,
+   "name": "롯데캐슬자이언트@101동앞",
+   "sido": "부산광역시",
+   "sigungu": "수영구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.175133,
+   "lon": 129.081623,
+   "name": "이마트 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "연제구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.195797,
+   "lon": 129.080238,
+   "name": "삼익퓨처타워아파트앞",
+   "sido": "부산광역시",
+   "sigungu": "연제구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.174517,
+   "lon": 129.086031,
+   "name": "신리삼거리",
+   "sido": "부산광역시",
+   "sigungu": "연제구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.179949,
+   "lon": 129.075105,
+   "name": "부산광역시경찰청앞",
+   "sido": "부산광역시",
+   "sigungu": "연제구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.245025,
+   "lon": 129.012975,
+   "name": "금곡고등학교 후문앞",
+   "sido": "부산광역시",
+   "sigungu": "북구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 35.225764,
+   "lon": 129.079789,
+   "name": "금정산SK뷰@입구 맞은편",
+   "sido": "부산광역시",
+   "sigungu": "금정구",
+   "limit": 50,
+   "since": "",
+   "source": "부산광역시경찰청 설치장소 police_busan_fixed"
+  },
+  {
+   "lat": 33.489801,
+   "lon": 126.489541,
+   "name": "삼무공원사거리",
+   "sido": "제주특별자치도",
+   "sigungu": "",
+   "limit": 50,
+   "since": "",
+   "source": "제주특별자치도경찰청 설치장소 police_jeju_equipment"
+  },
+  {
+   "lat": 33.481659,
+   "lon": 126.489492,
+   "name": "대림아파트입구교차로",
+   "sido": "제주특별자치도",
+   "sigungu": "",
+   "limit": 50,
+   "since": "",
+   "source": "제주특별자치도경찰청 설치장소 police_jeju_equipment"
+  },
+  {
+   "lat": 33.493768,
+   "lon": 126.47728,
+   "name": "월랑마을교차로",
+   "sido": "제주특별자치도",
+   "sigungu": "",
+   "limit": 50,
+   "since": "",
+   "source": "제주특별자치도경찰청 설치장소 police_jeju_equipment"
   },
   {
    "lat": 35.861876,
