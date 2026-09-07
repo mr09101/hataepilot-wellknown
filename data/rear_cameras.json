@@ -1,6 +1,6 @@
 {
  "version": "2026-09-07",
- "count": 478,
+ "count": 511,
  "items": [
   {
    "lat": 37.291582,
@@ -3343,6 +3343,86 @@
    "source": "대구광역시경찰청 설치장소 police_daegu_rear_20240527"
   },
   {
+   "lat": 36.448796,
+   "lon": 127.412089,
+   "name": "신탄진지구대 건너편",
+   "sido": "대전광역시",
+   "sigungu": "대덕구",
+   "limit": 0,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_daedeok"
+  },
+  {
+   "lat": 36.33488,
+   "lon": 127.422591,
+   "name": "삼선교 앞",
+   "sido": "대전광역시",
+   "sigungu": "중구",
+   "limit": 30,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_jungbu"
+  },
+  {
+   "lat": 36.342648,
+   "lon": 127.378759,
+   "name": "둔산자이아이파크 정문 앞",
+   "sido": "대전광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_jungbu"
+  },
+  {
+   "lat": 36.341351,
+   "lon": 127.397402,
+   "name": "대전탄방초등학교 용문분교 앞",
+   "sido": "대전광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_jungbu"
+  },
+  {
+   "lat": 36.338875,
+   "lon": 127.396827,
+   "name": "둔산더샵엘리프 301동 건너편",
+   "sido": "대전광역시",
+   "sigungu": "서구",
+   "limit": 30,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_jungbu"
+  },
+  {
+   "lat": 36.34765,
+   "lon": 127.376405,
+   "name": "큰마을네거리",
+   "sido": "대전광역시",
+   "sigungu": "서구",
+   "limit": 50,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_jungbu"
+  },
+  {
+   "lat": 36.306544,
+   "lon": 127.45604,
+   "name": "가오동네거리",
+   "sido": "대전광역시",
+   "sigungu": "동구",
+   "limit": 0,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_jungbu"
+  },
+  {
+   "lat": 36.340794,
+   "lon": 127.491673,
+   "name": "세천삼거리",
+   "sido": "대전광역시",
+   "sigungu": "동구",
+   "limit": 50,
+   "since": "",
+   "source": "대전광역시경찰청 설치장소 police_dj_jungbu"
+  },
+  {
    "lat": 35.137528,
    "lon": 129.100116,
    "name": "용소삼거리",
@@ -4733,6 +4813,266 @@
    "source": "제주특별자치도경찰청 설치장소 police_jeju_equipment"
   },
   {
+   "lat": 36.625501,
+   "lon": 127.43036,
+   "name": "시외버스터미널 4R",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 50,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 37.123233,
+   "lon": 127.993811,
+   "name": "다릿재터널 후",
+   "sido": "충청북도",
+   "sigungu": "제천시",
+   "limit": 80,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.620894,
+   "lon": 127.514867,
+   "name": "용암지하차도사거리",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.982637,
+   "lon": 127.9173,
+   "name": "칠금우체국사거리",
+   "sido": "충청북도",
+   "sigungu": "충주시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.786273,
+   "lon": 127.581448,
+   "name": "군청사거리",
+   "sido": "충청북도",
+   "sigungu": "증평군",
+   "limit": 50,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.898428,
+   "lon": 127.298014,
+   "name": "엽돈재",
+   "sido": "충청북도",
+   "sigungu": "진천군",
+   "limit": 30,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.63253,
+   "lon": 127.4535,
+   "name": "충대정문오거리",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 30,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.626411,
+   "lon": 127.470013,
+   "name": "모충고개삼거리 후",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 50,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.634749,
+   "lon": 127.460192,
+   "name": "사창사거리",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 50,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.630409,
+   "lon": 127.502654,
+   "name": "앞",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 50,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.748468,
+   "lon": 127.56255,
+   "name": "다온빌 앞",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 30,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.204819,
+   "lon": 127.930925,
+   "name": "내동마을회관 / 실버존",
+   "sido": "충청북도",
+   "sigungu": "영동군",
+   "limit": 30,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.226896,
+   "lon": 128.003651,
+   "name": "지봉리마을회관 / 실버존",
+   "sido": "충청북도",
+   "sigungu": "영동군",
+   "limit": 30,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.392901,
+   "lon": 127.733845,
+   "name": "능월리삼거리",
+   "sido": "충청북도",
+   "sigungu": "옥천군",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.231734,
+   "lon": 127.62663,
+   "name": "윤정교 인근",
+   "sido": "충청북도",
+   "sigungu": "옥천군",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.329891,
+   "lon": 127.81061,
+   "name": "판수마을회관 인근",
+   "sido": "충청북도",
+   "sigungu": "옥천군",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.645805,
+   "lon": 127.511977,
+   "name": "용호사 앞",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.620673,
+   "lon": 127.468452,
+   "name": "CJB미디어센터삼거리",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.780145,
+   "lon": 127.791347,
+   "name": "동고라미 마을인근",
+   "sido": "충청북도",
+   "sigungu": "괴산군",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 37.51516,
+   "lon": 127.326854,
+   "name": "새장터삼거리",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.712485,
+   "lon": 127.42527,
+   "name": "청주북부터미널사거리",
+   "sido": "충청북도",
+   "sigungu": "청주시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.300124,
+   "lon": 127.565215,
+   "name": "옥천소교",
+   "sido": "충청북도",
+   "sigungu": "옥천군",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.925203,
+   "lon": 128.151662,
+   "name": "덕산주유소",
+   "sido": "충청북도",
+   "sigungu": "제천시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 37.119677,
+   "lon": 128.221269,
+   "name": "강저농공단지 앞",
+   "sido": "충청북도",
+   "sigungu": "제천시",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.998083,
+   "lon": 127.441517,
+   "name": "실원삼거리",
+   "sido": "충청북도",
+   "sigungu": "진천군",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
+   "lat": 36.83099,
+   "lon": 127.488877,
+   "name": "내구노인정 앞",
+   "sido": "충청북도",
+   "sigungu": "진천군",
+   "limit": 0,
+   "since": "",
+   "source": "충청북도경찰청 설치장소 police_chungbuk_fixed"
+  },
+  {
    "lat": 35.861876,
    "lon": 128.635603,
    "name": "수성구청 앞",
@@ -4771,16 +5111,6 @@
    "limit": 50,
    "since": "2024-02 이전",
    "source": "https://www.newsis.com/view/NISX20240228_0002642237"
-  },
-  {
-   "lat": 36.898428,
-   "lon": 127.298014,
-   "name": "엽돈재",
-   "sido": "충청북도",
-   "sigungu": "진천군",
-   "limit": 30,
-   "since": "운영중",
-   "source": "https://v.daum.net/v/20260225210443050"
   }
  ]
 }
