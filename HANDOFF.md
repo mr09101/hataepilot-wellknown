@@ -5,7 +5,7 @@
 - 절대 경로: `D:\AI PROJECT\hataepilot-wellknown`
 - 시작 커밋: `437b429`, 웰컴라이트 구현 커밋: `dfd2f50fbacabb5f767c4f546f7db9649c3706d0`
 - 웰컴라이트 서버 구현과 로컬 mock/암호 검증을 완료했습니다.
-- 2026-09-09 Pages 코드 배포 `d438e159` → `https://hataepilot.com` 완료. 정적 공개 6파일만 업로드했습니다.
+- 2026-09-09 Pages 코드 직접 배포 `d438e159`, 최종 Actions 배포 `95197078` → `https://hataepilot.com` 완료. 정적 공개 6파일만 업로드했습니다.
 - 기존 Tesla 개인키와 사용자 subject를 Cloudflare 시크릿에 저장하는 작업은 자동 승인 검토가 해당 payload 외부 저장의 명시적 승인 부족으로 거절했습니다. 사용자 승인을 요청한 상태이며 키 업로드·우회 실행은 하지 않았습니다. 현재 POST는 503 `server_not_configured`로 차단됩니다.
 - 독립 보안 재검수에서 이전 P2 네 건 해결, 추가 확정 P1/P2 없음. 코드와 실제 서버 검증 결과를 반영한 뒤 관련 파일만 커밋·푸시합니다. 최종 해시는 `git log -1` 및 Android 작업 보고서 참조.
 
@@ -39,7 +39,7 @@ git diff --check
 - mock Tesla API로 입력, JWT, 소유권, stale/moving/occupied/unknown, wake 제한, 응답 본문 deadline, 불확실 명령 결과 검증
 - Wrangler 4.129.0 Pages Functions 번들 성공, `/api/welcome-lights` 라우트 포함 확인
 - 정적 스테이징에는 HTML, `_headers`, 공개키, 카메라 데이터 세 파일만 포함됨을 확인
-- 첫 GitHub Actions 배포(34248808175)는 계정 ID 자동 조회 실패로 중단됐습니다. 성공한 로컬 배포와 같은 기존 `CLOUDFLARE_ACCOUNT_ID`를 두 배포 workflow에 명시했습니다. 기존 API 토큰과 Tesla 시크릿은 변경하지 않았습니다. 후속 Actions 실행으로 검증합니다.
+- 첫 GitHub Actions 배포(34248808175)는 계정 ID 자동 조회 실패로 중단됐습니다. 성공한 로컬 배포와 같은 기존 `CLOUDFLARE_ACCOUNT_ID`를 두 배포 workflow에 명시했습니다. 수정 커밋 `5fd5acea6081754115bcb0f1cbe30d2db2fa4d74` main push 및 후속 Actions 34249152849 성공. 정적 경계3검사·독립 검수·배포 후 운영14검사 통과. 기존 API 토큰과 Tesla 시크릿은 변경하지 않았습니다.
 - 실제 계정 토큰과 실제 차량은 테스트에 사용하지 않았습니다.
 - 운영 서버 14개 검사 PASS: GET405, POST503/no-store, 기존 공개키 일치, 카메라3파일 HEAD200, 내부7경로가 소스 파일을 반환하지 않음. Cloudflare HTML 폴백은 HTTP200만으로 정보 노출로 판단하지 않고 페이지 내용으로 구분했습니다. `build/live-verification-2026-09-09.json`에 비식별 결과 기록.
 - 공개키와 기존 로컬 개인키가 같은 P-256 키쌍임을 값 출력 없이 확인했습니다. 최종 시크릿 저장은 위 사용자 승인 뒤에만 재시도합니다.
