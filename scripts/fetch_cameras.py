@@ -266,6 +266,9 @@ def main() -> None:
 
     print("[3/4] 정규화")
     records = build(rows)
+    # A complete page count can still contain corrupt/null coordinates throughout.
+    # Preserve the previous outputs unless the normalized nationwide dataset is usable.
+    validate_total(len(records))
     print(f"  유효 {len(records)}건")
 
     print("[4/4] SQLite 생성")

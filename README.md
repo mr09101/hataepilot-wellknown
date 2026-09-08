@@ -49,6 +49,8 @@ Cloudflare Pages의 `hataepilot` 프로젝트에 `TESLA_COMMAND_PRIVATE_KEY`를 
 
 ## 로컬 검증
 
+2026-09-09 보안 강화로 OAuth 요청·응답에 JSON 스키마와 크기/시간 제한, no-store 처리를 적용했습니다. 카메라 수집은 원본 페이지와 정규화 결과가 완전해야 게시합니다. 위협 모델, 48개 Node/6개 Python 검사와 운영 한계는 [전체 보안 보고서](docs/SECURITY_REVIEW_2026-09-09.md)를 확인하세요.
+
 외부 패키지 없이 Node.js 내장 테스트만 사용합니다.
 
 ```powershell

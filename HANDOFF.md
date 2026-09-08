@@ -1,5 +1,13 @@
 # HANDOFF
 
+## 2026-09-09 전체 보안 강화
+
+- 시작 `eadd2f1`, 원본에 반영한 보안 구현 `ed9049ed4fe776540bc254e391668094057f4694`. 이후 정규화 최소 건수와 Windows 검사 호환성 보완을 같은 작업에서 반영했습니다. 최종 문서 포함 커밋은 `git log -1`을 기준으로 합니다.
+- OAuth 요청 32 KiB/2초, 공급자 응답 64 KiB/8초, 고정 HTTPS·콜백, no-store/no-cache, 안전한 오류를 적용했습니다.
+- 원본 전체/페이지별 건수와 정규화 후 최소 1,000건이 검증돼야 DB를 씁니다. 부분/손상 수집은 기존 DB/manifest를 보존합니다.
+- Node 48/48, Python 6/6, Wrangler 4.129.0 Functions build 통과. 독립 보안 검수의 추가 확정 P1/P2 없음. 실행 명령·위협 모델·잔여 범위는 `D:\AI PROJECT\hataepilot-wellknown\docs\SECURITY_REVIEW_2026-09-09.md` 참조.
+- 아래 웰컴라이트 배포 기록은 이전 작업 이력입니다. 이번 보안 코드의 원격 반영/배포 결과는 검증 후 이 절에 추가합니다. 차량 명령 키 업로드는 계속 승인 대기이며 수행하지 않았습니다.
+
 ## 현재 상태
 
 - 절대 경로: `D:\AI PROJECT\hataepilot-wellknown`

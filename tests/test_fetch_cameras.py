@@ -59,7 +59,7 @@ class CameraCollectionValidationTest(unittest.TestCase):
                 fetch_cameras.fetch_rows(25_000)
 
     def test_each_page_must_be_a_list_of_objects(self):
-        for payload in [{"rows": []}, ["not-an-object"], [{}]]:
+        for payload in [{"rows": []}, ["not-an-object"] * 1_000, [{}] * 1_000]:
             with self.subTest(payload=payload), mock.patch.object(
                 fetch_cameras, "http_get", return_value=encoded(payload)
             ):
@@ -88,6 +88,26 @@ class CameraCollectionValidationTest(unittest.TestCase):
 
             self.assertEqual(database.read_bytes(), b"existing-database")
             self.assertEqual(manifest.read_text(encoding="utf-8"), "existing-manifest")
+
+    def test_complete_but_nearly_empty_normalized_data_preserves_outputs(self):
+        for usable_count in (0, 1):
+            with self.subTest(usable_count=usable_count), tempfile.TemporaryDirectory() as temporary:
+                output = Path(temporary)
+                database, manifest = output / "cameras.db", output / "cameras.json"
+                database.write_bytes(b"existing-database")
+                manifest.write_text("existing-manifest", encoding="utf-8")
+                rows = [valid_row() for _ in range(1_000)]
+                for row in rows[:usable_count]:
+                    row.update(LATITUDE="37.5", LONGITUDE="127.0")
+                with (
+                    mock.patch.object(fetch_cameras, "OUT_DIR", output),
+                    mock.patch.object(fetch_cameras, "fetch_total", return_value=1_000),
+                    mock.patch.object(fetch_cameras, "http_get", return_value=encoded(rows)),
+                ):
+                    with self.assertRaises(fetch_cameras.PortalDataError):
+                        fetch_cameras.main()
+                self.assertEqual(database.read_bytes(), b"existing-database")
+                self.assertEqual(manifest.read_text(encoding="utf-8"), "existing-manifest")
 
 
 if __name__ == "__main__":

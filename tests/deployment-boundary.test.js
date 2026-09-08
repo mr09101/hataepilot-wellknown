@@ -41,8 +41,8 @@ test("every Pages deployment uses the allowlisted staging directory", async () =
 });
 
 test("defense-in-depth ignore rules cover local secrets and generated staging", async () => {
-  const assetsIgnore = await readFile(new URL("../.assetsignore", import.meta.url), "utf8");
-  const gitIgnore = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
+  const assetsIgnore = (await readFile(new URL("../.assetsignore", import.meta.url), "utf8")).replaceAll("\r\n", "\n");
+  const gitIgnore = (await readFile(new URL("../.gitignore", import.meta.url), "utf8")).replaceAll("\r\n", "\n");
   for (const entry of ["tests", "docs", "*.env*", "*.key", "*private*.pem", "README.md", "HANDOFF.md", "PROJECT_BLUEPRINT.md", "package*.json", "build"]) {
     assert.match(assetsIgnore, new RegExp(`(^|\\n)${entry.replaceAll("*", "\\*")}($|\\n)`));
   }

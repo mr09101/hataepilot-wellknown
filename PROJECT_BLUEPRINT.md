@@ -20,6 +20,8 @@
 
 ## 4. 보안·개인정보 기준 — 구현됐으나 검증 필요
 
+- 2026-09-09 전체 보안 강화: HTTP 입력→고정 Tesla API, 공공 원본→정규화 DB→공개 배포 경계에서 본문 크기·시간, 응답 캐시, 부분/손상 수집 게시 문제를 수정했습니다. Node 48·Python 6·Functions build와 독립 검수를 통과했습니다. 위협 모델·남은 운영 범위: `docs/SECURITY_REVIEW_2026-09-09.md`. 명령 키 업로드와 실제 차량 검증은 여전히 별도입니다.
+
 - 근거: `docs/WELCOME_LIGHTS_SECURITY.md`
 - JWT 서명·claims·scope, 차량 객체 소유권, 선택적 subject/VIN allowlist, 비밀키 Secret, fail-closed 상태 검증을 구현했습니다.
 - 정적 자산 고정 허용 목록과 민감값 배포 방지 테스트 및 운영서버14검사를 통과했습니다. Cloudflare 차량 명령 secret은 자동 승인 검토 거절 후 사용자 승인 대기 중입니다.
