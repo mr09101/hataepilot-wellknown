@@ -32,4 +32,5 @@ jobs:
       - name: Cloudflare Pages 배포
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "50fcd8cb054b887e0987bc70008ffbb4"
         run: npx --yes wrangler@4 pages deploy build/pages-assets --project-name hataepilot --commit-dirty=true

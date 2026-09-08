@@ -39,6 +39,7 @@ git diff --check
 - mock Tesla API로 입력, JWT, 소유권, stale/moving/occupied/unknown, wake 제한, 응답 본문 deadline, 불확실 명령 결과 검증
 - Wrangler 4.129.0 Pages Functions 번들 성공, `/api/welcome-lights` 라우트 포함 확인
 - 정적 스테이징에는 HTML, `_headers`, 공개키, 카메라 데이터 세 파일만 포함됨을 확인
+- 첫 GitHub Actions 배포(34248808175)는 계정 ID 자동 조회 실패로 중단됐습니다. 성공한 로컬 배포와 같은 기존 `CLOUDFLARE_ACCOUNT_ID`를 두 배포 workflow에 명시했습니다. 기존 API 토큰과 Tesla 시크릿은 변경하지 않았습니다. 후속 Actions 실행으로 검증합니다.
 - 실제 계정 토큰과 실제 차량은 테스트에 사용하지 않았습니다.
 - 운영 서버 14개 검사 PASS: GET405, POST503/no-store, 기존 공개키 일치, 카메라3파일 HEAD200, 내부7경로가 소스 파일을 반환하지 않음. Cloudflare HTML 폴백은 HTTP200만으로 정보 노출로 판단하지 않고 페이지 내용으로 구분했습니다. `build/live-verification-2026-09-09.json`에 비식별 결과 기록.
 - 공개키와 기존 로컬 개인키가 같은 P-256 키쌍임을 값 출력 없이 확인했습니다. 최종 시크릿 저장은 위 사용자 승인 뒤에만 재시도합니다.
