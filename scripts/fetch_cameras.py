@@ -25,6 +25,8 @@ PK = "15028200"
 TABLE = "tn_pubr_public_unmanned_traffic_camera_svc"
 BASE = "https://www.data.go.kr"
 PER_PAGE = 10000
+MIN_TOTAL = 1000
+MAX_TOTAL = 1_000_000
 OUT_DIR = Path(__file__).resolve().parent.parent / "data"
 
 # 앱이 실제로 쓰는 컬럼만 추린다. 원본 21개 중 8개.
@@ -38,6 +40,33 @@ KEEP = {
     "ITLPC": "place",               # 설치장소
     "ROAD_ROUTE_NM": "route",       # 도로노선명 (구간단속 페어링용)
 }
+
+
+class PortalDataError(RuntimeError):
+    """포털이 불완전하거나 예상 스키마와 다른 데이터를 반환했다."""
+
+
+def parse_json(raw: bytes, label: str):
+    try:
+        return json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError, TypeError) as error:
+        raise PortalDataError(f"{label} JSON 형식이 올바르지 않습니다") from error
+
+
+def validate_total(raw) -> int:
+    if isinstance(raw, bool):
+        raise PortalDataError("전체 건수가 정수가 아닙니다")
+    if isinstance(raw, int):
+        total = raw
+    elif isinstance(raw, str) and raw.isdigit():
+        total = int(raw)
+    else:
+        raise PortalDataError("전체 건수가 정수가 아닙니다")
+    if not MIN_TOTAL <= total <= MAX_TOTAL:
+        raise PortalDataError(
+            f"전체 건수가 허용 범위({MIN_TOTAL}~{MAX_TOTAL})를 벗어났습니다"
+        )
+    return total
 
 
 def http_get(url: str, retries: int = 3) -> bytes:
@@ -59,7 +88,10 @@ def http_get(url: str, retries: int = 3) -> bytes:
 
 def fetch_total() -> int:
     url = f"{BASE}/download/columList.json?{urllib.parse.urlencode({'pk': PK, 'ext': 'CSV'})}"
-    return int(json.loads(http_get(url))["totalCount"])
+    payload = parse_json(http_get(url), "메타데이터")
+    if not isinstance(payload, dict) or "totalCount" not in payload:
+        raise PortalDataError("메타데이터에 전체 건수가 없습니다")
+    return validate_total(payload["totalCount"])
 
 
 def fetch_rows(total: int) -> list[dict]:
@@ -68,6 +100,7 @@ def fetch_rows(total: int) -> list[dict]:
     전체 23개 컬럼을 한 번에 요청하면 서버가 빈 응답(0바이트)을 돌려준다.
     필요한 8개만 요청하면 perPage=10000도 정상 응답한다.
     """
+    total = validate_total(total)
     rows: list[dict] = []
     pages = (total + PER_PAGE - 1) // PER_PAGE
     for page in range(1, pages + 1):
@@ -79,9 +112,23 @@ def fetch_rows(total: int) -> list[dict]:
             ("page", str(page)),
         ] + [("colNmList", c) for c in KEEP]
         url = f"{BASE}/download/standard.json?{urllib.parse.urlencode(params)}"
-        got = json.loads(http_get(url))
+        got = parse_json(http_get(url), f"페이지 {page}")
+        if not isinstance(got, list):
+            raise PortalDataError(f"페이지 {page}가 배열이 아닙니다")
+        expected = min(PER_PAGE, total - len(rows))
+        if len(got) != expected:
+            raise PortalDataError(
+                f"페이지 {page} 건수 불일치: 예상 {expected}, 수신 {len(got)}"
+            )
+        if any(
+            not isinstance(row, dict) or not set(KEEP).issubset(row)
+            for row in got
+        ):
+            raise PortalDataError(f"페이지 {page} 행 스키마가 올바르지 않습니다")
         rows.extend(got)
         print(f"  page {page}/{pages}: {len(got)}건 (누적 {len(rows)})")
+    if len(rows) != total:
+        raise PortalDataError(f"최종 건수 불일치: 예상 {total}, 수신 {len(rows)}")
     return rows
 
 
