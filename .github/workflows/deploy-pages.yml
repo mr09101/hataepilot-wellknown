@@ -1,0 +1,35 @@
+name: Cloudflare Pages 배포
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "functions/**"
+      - "index.html"
+      - "_headers"
+      - ".well-known/**"
+      - "data/**"
+      - "scripts/stage-pages-assets.mjs"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 공개 정적 파일만 스테이징
+        run: node scripts/stage-pages-assets.mjs
+
+      - name: Cloudflare Pages 배포
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes wrangler@4 pages deploy build/pages-assets --project-name hataepilot --commit-dirty=true

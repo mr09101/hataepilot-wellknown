@@ -58,4 +58,5 @@ jobs:
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
             echo "CLOUDFLARE_API_TOKEN 시크릿 없음 — GitHub raw로만 배포됨"; exit 0
           fi
-          npx --yes wrangler@4 pages deploy . --project-name hataepilot --commit-dirty=true
+          node scripts/stage-pages-assets.mjs
+          npx --yes wrangler@4 pages deploy build/pages-assets --project-name hataepilot --commit-dirty=true

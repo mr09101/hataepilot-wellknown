@@ -1,3 +1,13 @@
 .git
 .wrangler
 .assetsignore
+tests
+docs
+*.env*
+*.key
+*private*.pem
+README.md
+HANDOFF.md
+PROJECT_BLUEPRINT.md
+package*.json
+build
