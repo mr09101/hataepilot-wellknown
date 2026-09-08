@@ -6,7 +6,7 @@
 - OAuth 요청 32 KiB/2초, 공급자 응답 64 KiB/8초, 고정 HTTPS·콜백, no-store/no-cache, 안전한 오류를 적용했습니다.
 - 원본 전체/페이지별 건수와 정규화 후 최소 1,000건이 검증돼야 DB를 씁니다. 부분/손상 수집은 기존 DB/manifest를 보존합니다.
 - Node 48/48, Python 6/6, Wrangler 4.129.0 Functions build 통과. 독립 보안 검수의 추가 확정 P1/P2 없음. 실행 명령·위협 모델·잔여 범위는 `D:\AI PROJECT\hataepilot-wellknown\docs\SECURITY_REVIEW_2026-09-09.md` 참조.
-- 아래 웰컴라이트 배포 기록은 이전 작업 이력입니다. 이번 보안 코드의 원격 반영/배포 결과는 검증 후 이 절에 추가합니다. 차량 명령 키 업로드는 계속 승인 대기이며 수행하지 않았습니다.
+- 최종 보안 코드 `33bb64dcad0e950d163e6fca8c976c963404c93f` main push 완료. GitHub Actions `34258854160` 성공으로 기존 Pages 배포 완료. 운영 서버 18개 검사 PASS: OAuth 잘못된 형식/과대 본문 거부+no-store, 명령503 유지, 카메라3파일·manifest·후면511곳 유지, 개발/비밀 경로 비공개. 증거 `D:\AI PROJECT\hataepilot-wellknown\build\live-security-verification-2026-09-09.json`. Cloudflare HEAD는 Content-Length를 생략할 수 있어 응답 형식과 실제 JSON을 함께 검사했습니다. 차량 명령 키 업로드는 계속 승인 대기이며 수행하지 않았습니다.
 
 ## 현재 상태
 

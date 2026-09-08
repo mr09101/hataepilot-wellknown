@@ -28,6 +28,7 @@ Tesla endpoint·client ID·audience·등록 콜백은 기존 계약을 유지합
 - Windows에서도 배포 경계 검사가 동일하게 동작하도록 ignore 파일 CRLF를 테스트에서 정규화했습니다.
 - 읽기 전용 독립 보안 검수: 추가로 확정한 P1/P2 없음. 검수 중 발견된 정규화 후 0~1건 게시 문제를 수정하고 재검증했습니다.
 - 실제 Tesla 토큰·차량 명령 없이 가짜 공급자와 로컬 파일로 검증했습니다. 운영 배포 후 증거는 `HANDOFF.md`에 별도로 기록합니다.
+- 최종 코드 `33bb64d`의 Actions `34258854160` 배포 성공 및 운영 18개 검사 통과. 기존 키·시크릿 설정을 유지했습니다.
 
 ```powershell
 cd "D:\AI PROJECT\hataepilot-wellknown"
