@@ -3,7 +3,7 @@
 ## 현재 상태
 
 - 절대 경로: `D:\AI PROJECT\hataepilot-wellknown`
-- 기준 커밋: `437b429`
+- 시작 커밋: `437b429`, 웰컴라이트 구현 커밋: `dfd2f50fbacabb5f767c4f546f7db9649c3706d0`
 - 웰컴라이트 서버 구현과 로컬 mock/암호 검증을 완료했습니다.
 - 2026-09-09 Pages 코드 배포 `d438e159` → `https://hataepilot.com` 완료. 정적 공개 6파일만 업로드했습니다.
 - 기존 Tesla 개인키와 사용자 subject를 Cloudflare 시크릿에 저장하는 작업은 자동 승인 검토가 해당 payload 외부 저장의 명시적 승인 부족으로 거절했습니다. 사용자 승인을 요청한 상태이며 키 업로드·우회 실행은 하지 않았습니다. 현재 POST는 503 `server_not_configured`로 차단됩니다.
@@ -43,7 +43,7 @@ git diff --check
 - 운영 서버 14개 검사 PASS: GET405, POST503/no-store, 기존 공개키 일치, 카메라3파일 HEAD200, 내부7경로가 소스 파일을 반환하지 않음. Cloudflare HTML 폴백은 HTTP200만으로 정보 노출로 판단하지 않고 페이지 내용으로 구분했습니다. `build/live-verification-2026-09-09.json`에 비식별 결과 기록.
 - 공개키와 기존 로컬 개인키가 같은 P-256 키쌍임을 값 출력 없이 확인했습니다. 최종 시크릿 저장은 위 사용자 승인 뒤에만 재시도합니다.
 
-## 배포 전 필수 작업
+## 기능 활성화 전 남은 작업
 
 1. 공개 호스팅 키와 기존 개인키의 짝이 맞는지 다시 확인합니다.
 2. 개인키를 P-256 PKCS#8 PEM으로 변환해 Cloudflare `TESLA_COMMAND_PRIVATE_KEY` Secret에 등록합니다.
