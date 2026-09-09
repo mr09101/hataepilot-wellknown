@@ -237,9 +237,14 @@ export function createTeslaOAuthHandler({
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: form.toString(),
-          redirect: "error",
+          // Workers supports manual/follow only. Refuse redirects explicitly below.
+          redirect: "manual",
           signal: controller.signal,
         });
+        if (response.status >= 300 && response.status < 400) {
+          void response.body?.cancel().catch(() => {});
+          throw new OAuthProviderError("provider_unavailable");
+        }
         const providerBody = await readProviderJson(
           response,
           maxResponseBytes,

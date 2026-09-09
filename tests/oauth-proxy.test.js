@@ -107,7 +107,7 @@ test("authorization-code exchange uses the fixed provider and default redirect s
     fetchImpl: async (url, options) => {
       assert.equal(String(url), ENDPOINT);
       assert.equal(options.method, "POST");
-      assert.equal(options.redirect, "error");
+      assert.equal(options.redirect, "manual");
       assert.ok(options.signal instanceof AbortSignal);
       const form = new URLSearchParams(options.body);
       assert.equal(form.get("grant_type"), "authorization_code");
@@ -147,7 +147,7 @@ test("refresh exchange forwards only the bounded refresh grant", async () => {
   const handler = createRefreshHandler({
     fetchImpl: async (url, options) => {
       assert.equal(String(url), ENDPOINT);
-      assert.equal(options.redirect, "error");
+      assert.equal(options.redirect, "manual");
       const form = new URLSearchParams(options.body);
       assert.deepEqual([...form.keys()].sort(), ["client_id", "client_secret", "grant_type", "refresh_token"]);
       assert.equal(form.get("grant_type"), "refresh_token");
@@ -159,6 +159,29 @@ test("refresh exchange forwards only the bounded refresh grant", async () => {
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { access_token: "new-fake-access" });
   assertSecureJson(response);
+});
+
+test("manual redirects are cancelled without forwarding credentials to Location", async () => {
+  for (const status of [302, 307]) {
+    let fetches = 0;
+    let cancelled = false;
+    const handler = createRefreshHandler({
+      fetchImpl: async (url, options) => {
+        fetches++;
+        assert.equal(String(url), ENDPOINT);
+        assert.equal(options.redirect, "manual");
+        return new Response(new ReadableStream({ cancel() { cancelled = true; } }), {
+          status, headers: { Location: "https://never-follow.invalid/collect" },
+        });
+      },
+    });
+    const response = await handler({ request: request("refresh", { refresh_token: "fake-refresh" }), env: ENV });
+    assert.equal(response.status, 502);
+    assert.deepEqual(await response.json(), { error: "provider_unavailable" });
+    assertSecureJson(response);
+    assert.equal(fetches, 1);
+    assert.equal(cancelled, true);
+  }
 });
 
 test("provider deadline covers both fetch and response body consumption", async () => {

@@ -1,5 +1,14 @@
 # HANDOFF
 
+## 2026-09-09 차량 목록 502 원인 — Workers redirect 옵션 미지원
+
+- 주소 교정 `73001562478ba5e258bf99db9851b21a0cf06d8c`은 Actions `34344433048` 배포 성공했으나 휴대폰 502가 계속돼 추가 조사했습니다.
+- 실제 workerd 런타임에 빌드된 Pages 번들을 넣고 모든 outbound를 모의 응답으로 대체하자, 공급자 호출 0회에서 `redirect: error` 미지원 TypeError → 502가 재현됐습니다. Node의 fetch 모의 검사만으로는 놓쳤던 실행 환경 차이입니다.
+- `oauth-proxy.js`를 Workers가 지원하는 `redirect: manual`로 바꾸고 300~399는 본문 취소 후 고정 502로 거부합니다. 외부 Location으로 토큰을 보내지 않습니다. 기존 크기·시간 제한, 비밀값 비출력, no-store는 유지합니다.
+- `node --test tests/*.test.js` 및 Wrangler Functions build, `scripts/test-oauth-worker-runtime.mjs`의 실제 workerd 모의 검사6개(토큰 교환/갱신 각각200/401/302)를 실행했습니다. 외부 실제 네트워크 요청은 0회입니다. 코드 배포 후 실제 휴대폰 갱신·목록 복구는 후속 기록에 남깁니다.
+- 런타임 검증: Wrangler로 `build/oauth-endpoint-functions`를 만든 뒤 설치된 Miniflare 모듈 경로를 `MINIFLARE_MODULE`에 지정하고 `node scripts/test-oauth-worker-runtime.mjs build/oauth-endpoint-functions/index.js` 실행. Node 테스트와 별개로 실제 플랫폼 런타임에서도 성공·실패 경로를 확인하는 것을 재사용 규칙으로 남깁니다.
+- 웰컴라이트 관련 세 모듈에도 같은 옵션이 남아 있음을 확인했습니다. 차량 명령 키 업로드 승인 대기 중인 비활성 경로로, 이번 토큰 갱신 수정과 별도로 실제 활성화 전에 교정·검증해야 합니다.
+
 ## 2026-09-09 차량 목록 조회 실패 — 토큰 서버 주소 교정
 
 - 시작 커밋 `69e9147`. 연결 휴대폰에서 access 만료 → `/api/refresh` HTTP 502 → 차량 목록 GET 미실행을 확인했습니다. 기존 refresh 및 선택 차량은 보존됐습니다. 비식별 진단은 `D:\AI PROJECT\tesla-drive-assist\build\audio-mix-2026-09-09\vehicle-list-diagnostic.json`입니다.
