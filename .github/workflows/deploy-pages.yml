@@ -6,6 +6,7 @@ on:
     paths:
       - "functions/**"
       - "index.html"
+      - "app-recovery/**"
       - "_headers"
       - ".well-known/**"
       - "data/**"

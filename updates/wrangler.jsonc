@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hataepilot-updates",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-09",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "hataepilot.com/updates/*",
+      "zone_name": "hataepilot.com"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "UPDATES_BUCKET",
+      "bucket_name": "hataepilot-updates"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "UPDATE_BUDGET",
+        "class_name": "UpdateBudget"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["UpdateBudget"]
+    }
+  ],
+  "observability": {
+    "enabled": false
+  }
+}

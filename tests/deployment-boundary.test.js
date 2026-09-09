@@ -8,6 +8,7 @@ import { PAGES_ASSET_OUTPUT, PUBLIC_ASSETS, stagePagesAssets } from "../scripts/
 const EXPECTED_ASSETS = [
   ".well-known/appspecific/com.tesla.3p.public-key.pem",
   "_headers",
+  "app-recovery/index.html",
   "data/cameras.db",
   "data/cameras.json",
   "data/rear_cameras.json",
@@ -38,6 +39,11 @@ test("every Pages deployment uses the allowlisted staging directory", async () =
     assert.match(workflow, /node scripts\/stage-pages-assets\.mjs/);
     assert.match(workflow, /pages deploy build\/pages-assets/);
   }
+});
+
+test("the recovery page participates in Pages deployment triggers", async () => {
+  const deployWorkflow = await readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8");
+  assert.match(deployWorkflow, /- "app-recovery\/\*\*"/);
 });
 
 test("defense-in-depth ignore rules cover local secrets and generated staging", async () => {

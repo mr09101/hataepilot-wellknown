@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'">
+  <meta name="color-scheme" content="dark">
+  <title>하태파일럿 업데이트와 복구</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:#f8fafc;background:#07111f}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#183459 0,#07111f 45%);line-height:1.6}main{width:min(920px,calc(100% - 32px));margin:0 auto;padding:64px 0 80px}.hero,.panel,.release{border:1px solid #36506f;background:rgba(8,20,36,.92);box-shadow:0 20px 60px rgba(0,0,0,.28)}.hero{padding:40px;border-radius:28px}.eyebrow{margin:0 0 8px;color:#7dd3fc;font-weight:800;letter-spacing:.08em}.hero h1{margin:0;font-size:clamp(2rem,6vw,4rem);line-height:1.1}.hero p{max-width:65ch;color:#cbd5e1}.panel{margin-top:24px;padding:28px;border-radius:22px}label{display:block;font-weight:750}.password-row{display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:10px}input[type=password]{min-width:0;width:100%;height:50px;border:1px solid #64748b;border-radius:12px;background:#020617;color:#fff;padding:0 14px;font-size:1rem}button{min-height:50px;border:0;border-radius:12px;background:#38bdf8;color:#082f49;padding:0 22px;font:inherit;font-weight:850;cursor:pointer;word-break:keep-all;overflow-wrap:anywhere}button:disabled{cursor:not-allowed;opacity:.45}.safety{display:flex;gap:12px;align-items:flex-start;margin-top:20px;padding:15px;border-radius:14px;background:#172033}.safety input{width:22px;height:22px;margin-top:2px;accent-color:#38bdf8}.safety span,.warning{word-break:keep-all;overflow-wrap:anywhere}.status{min-height:28px;margin:16px 0 0;color:#bae6fd}.releases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px}.release{padding:24px;border-radius:20px}.release h2{margin:0 0 6px}.meta{color:#94a3b8}.notes{white-space:pre-wrap;color:#e2e8f0}.release button{width:100%;margin-top:12px}.warning{margin-top:24px;padding:20px;border-left:4px solid #f59e0b;background:#211b10;color:#fde68a;border-radius:8px}footer{margin-top:30px;color:#94a3b8;font-size:.92rem}@media(max-width:680px){main{width:min(100% - 20px,920px);padding:24px 0 44px}.hero{padding:26px 22px;border-radius:20px}.panel{padding:20px 16px}.password-row,.releases{grid-template-columns:1fr}.password-row button{width:100%}.release{padding:20px}button,input[type=password]{min-height:52px}}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">개인용 설치 안내</p>
+      <h1>하태파일럿<br>업데이트와 복구</h1>
+      <p>업데이트 비밀번호로 새 정상판과 문제 발생 시 복구판 정보를 확인한 뒤 APK를 받으실 수 있습니다. 비밀번호는 이 화면의 메모리에만 잠시 두며 URL, 브라우저 저장소, 분석 서비스에 기록하지 않습니다.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="auth-title">
+      <h2 id="auth-title">업데이트 확인</h2>
+      <form id="auth-form" method="post" action="/app-recovery/" autocomplete="off">
+        <label for="update-token">43자 업데이트 비밀번호</label>
+        <div class="password-row">
+          <input id="update-token" type="password" inputmode="text" minlength="43" maxlength="43" pattern="[A-Za-z0-9_-]{43}" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+          <button id="check-button" type="submit" disabled>버전 확인</button>
+        </div>
+      </form>
+      <noscript><p class="status">버전 확인에는 JavaScript가 필요합니다. 비밀번호가 전송되지 않도록 입력하지 말고 JavaScript를 켠 뒤 다시 열어 주세요.</p></noscript>
+      <label class="safety"><input id="parked" type="checkbox"><span>차량을 안전한 곳에 주차했고 주행 중이 아님을 확인했습니다. 다운로드 버튼은 이 확인 뒤에만 활성화됩니다.</span></label>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="releases" class="releases" aria-label="설치 파일"></section>
+
+    <aside class="warning">
+      <strong>설치 전에 확인해 주세요.</strong><br>
+      복구판은 같은 서명으로 만든 더 높은 버전이므로 앱을 삭제하지 않고 업데이트합니다. 앱을 삭제하면 기존 데이터가 사라질 수 있습니다. 브라우저로 Android 설치 화면을 연 뒤에는 앱이 주행 상태를 강제로 차단할 수 없으므로 계속 주차 상태를 유지해 주세요.
+    </aside>
+    <footer>이 페이지에는 계정, 차량, 설치 날짜 같은 개인정보를 표시하지 않습니다.</footer>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+      const allowedPaths = new Set(["/updates/apk/current", "/updates/apk/recovery"]);
+      const authForm = document.querySelector("#auth-form");
+      const tokenInput = document.querySelector("#update-token");
+      const checkButton = document.querySelector("#check-button");
+      const parkedInput = document.querySelector("#parked");
+      const status = document.querySelector("#status");
+      const releases = document.querySelector("#releases");
+      let updateToken = "";
+      let checking = false;
+      checkButton.disabled = false;
+
+      function setStatus(message) { status.textContent = message; }
+      function validRelease(value) {
+        return value && Number.isSafeInteger(value.versionCode) && typeof value.versionName === "string"
+          && /^[0-9a-f]{64}$/.test(value.sha256) && Number.isSafeInteger(value.sizeBytes)
+          && typeof value.notes === "string" && allowedPaths.has(value.downloadPath);
+      }
+      function submitDownload(release) {
+        if (!parkedInput.checked) { setStatus("주차 확인을 먼저 선택해 주세요."); return; }
+        if (!updateToken || !validRelease(release)) { setStatus("버전 정보를 다시 확인해 주세요."); return; }
+        const form = document.createElement("form");
+        form.method = "post";
+        form.action = release.downloadPath;
+        form.enctype = "application/x-www-form-urlencoded";
+        form.referrerPolicy = "no-referrer";
+        for (const [name, value] of [["token", updateToken], ["sha", release.sha256], ["parked", "true"]]) {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = name;
+          input.value = value;
+          form.append(input);
+        }
+        document.body.append(form);
+        form.submit();
+        form.remove();
+      }
+      function addRelease(title, release) {
+        const article = document.createElement("article");
+        article.className = "release";
+        const heading = document.createElement("h2");
+        heading.textContent = title;
+        const meta = document.createElement("p");
+        meta.className = "meta";
+        meta.textContent = `버전 ${release.versionName} (${release.versionCode}) · ${(release.sizeBytes / 1048576).toFixed(1)} MiB`;
+        const notes = document.createElement("p");
+        notes.className = "notes";
+        notes.textContent = release.notes;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = `${title} APK 다운로드`;
+        button.disabled = !parkedInput.checked;
+        button.addEventListener("click", () => submitDownload(release));
+        article.append(heading, meta, notes, button);
+        releases.append(article);
+      }
+      function syncButtons() {
+        for (const button of releases.querySelectorAll("button")) button.disabled = !parkedInput.checked;
+      }
+      parkedInput.addEventListener("change", syncButtons);
+      authForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (checking) return;
+        const candidate = tokenInput.value;
+        if (!/^[A-Za-z0-9_-]{43}$/.test(candidate)) { setStatus("43자 비밀번호 형식을 확인해 주세요."); return; }
+        checking = true;
+        checkButton.disabled = true;
+        authForm.setAttribute("aria-busy", "true");
+        setStatus("버전 정보를 확인하고 있습니다…");
+        try {
+          const response = await fetch("/updates/manifest", {
+            method: "GET",
+            headers: { Authorization: `Bearer ${candidate}` },
+            cache: "no-store",
+            credentials: "omit",
+            referrerPolicy: "no-referrer"
+          });
+          if (!response.ok) throw new Error("manifest_failed");
+          const manifest = await response.json();
+          if (manifest?.schema !== 1 || manifest?.packageName !== "com.khs.hataepilot"
+              || !validRelease(manifest?.releases?.current) || !validRelease(manifest?.releases?.recovery)) {
+            throw new Error("manifest_invalid");
+          }
+          updateToken = candidate;
+          tokenInput.value = "";
+          releases.replaceChildren();
+          addRelease("새 정상판", manifest.releases.current);
+          addRelease("문제 발생 시 복구판", manifest.releases.recovery);
+          syncButtons();
+          setStatus("설치할 버전을 선택할 수 있습니다.");
+        } catch {
+          updateToken = "";
+          releases.replaceChildren();
+          setStatus("버전 정보를 불러오지 못했습니다. 비밀번호와 잠시 뒤 연결 상태를 확인해 주세요.");
+        } finally {
+          checking = false;
+          checkButton.disabled = false;
+          authForm.removeAttribute("aria-busy");
+        }
+      });
+      addEventListener("pagehide", () => { updateToken = ""; tokenInput.value = ""; });
+    })();
+  </script>
+</body>
+</html>
