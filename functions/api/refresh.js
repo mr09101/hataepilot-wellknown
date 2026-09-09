@@ -6,7 +6,7 @@
 import { createTeslaOAuthHandler } from "../_lib/oauth-proxy.js";
 
 const CLIENT_ID = "8dcd603f-22b3-461d-87b8-07acd47f8bb9";
-const TOKEN_ENDPOINT = "https://auth.tesla.com/oauth2/v3/token";
+const TOKEN_ENDPOINT = "https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token";
 
 export function createRefreshHandler(options = {}) {
   return createTeslaOAuthHandler({

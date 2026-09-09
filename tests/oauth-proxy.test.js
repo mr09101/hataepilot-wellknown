@@ -5,7 +5,7 @@ import { createRefreshHandler } from "../functions/api/refresh.js";
 import { createTokenHandler } from "../functions/api/token.js";
 
 const ENV = { TESLA_CLIENT_SECRET: "fake-client-secret" };
-const ENDPOINT = "https://auth.tesla.com/oauth2/v3/token";
+const ENDPOINT = "https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token";
 const REDIRECT_URI = "https://hataepilot.com/auth/callback";
 
 function request(path, body, contentType = "application/json") {

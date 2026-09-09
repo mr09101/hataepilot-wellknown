@@ -1,5 +1,13 @@
 # HANDOFF
 
+## 2026-09-09 차량 목록 조회 실패 — 토큰 서버 주소 교정
+
+- 시작 커밋 `69e9147`. 연결 휴대폰에서 access 만료 → `/api/refresh` HTTP 502 → 차량 목록 GET 미실행을 확인했습니다. 기존 refresh 및 선택 차량은 보존됐습니다. 비식별 진단은 `D:\AI PROJECT\tesla-drive-assist\build\audio-mix-2026-09-09\vehicle-list-diagnostic.json`입니다.
+- `functions/api/token.js`·`refresh.js`의 서버 토큰 주소를 현재 공식 `https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token`으로 교정했습니다. 브라우저 로그인 주소·client ID/secret·scope·NA audience·redirect URI는 그대로입니다.
+- 공식 근거: https://developer.tesla.com/docs/fleet-api/authentication/third-party-tokens
+- 기존 정확 URL 계약 테스트에서 수정 전 2개 실패를 재현했고, 수정 후 `node --test tests/*.test.js` 48/48 및 Wrangler 4.129.0 Functions build를 통과했습니다. 독립 인증 검수도 OAuth 12/12 및 diff 검사 통과, 추가 확정 P1/P2 없음입니다.
+- 이 커밋 시점에는 운영 배포와 실제 토큰 갱신·차량 목록 복구 검증이 남았습니다. 기존 Cloudflare Pages 배포 workflow를 사용하며 새 시크릿을 업로드하지 않습니다. 배포·실기기 후속 결과 및 최종 해시는 다음 기록에 남깁니다.
+
 ## 2026-09-09 전체 보안 강화
 
 - 시작 `eadd2f1`, 원본에 반영한 보안 구현 `ed9049ed4fe776540bc254e391668094057f4694`. 이후 정규화 최소 건수와 Windows 검사 호환성 보완을 같은 작업에서 반영했습니다. 최종 문서 포함 커밋은 `git log -1`을 기준으로 합니다.

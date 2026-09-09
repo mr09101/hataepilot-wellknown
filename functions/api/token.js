@@ -10,7 +10,8 @@ import { createTeslaOAuthHandler } from "../_lib/oauth-proxy.js";
 const CLIENT_ID = "8dcd603f-22b3-461d-87b8-07acd47f8bb9";
 const REDIRECT_URI = "https://hataepilot.com/auth/callback";
 const AUDIENCE = "https://fleet-api.prd.na.vn.cloud.tesla.com";
-const TOKEN_ENDPOINT = "https://auth.tesla.com/oauth2/v3/token";
+// Fleet API의 서버 토큰 요청은 브라우저 로그인과 다른 공식 호스트를 사용한다.
+const TOKEN_ENDPOINT = "https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token";
 
 export function createTokenHandler(options = {}) {
   return createTeslaOAuthHandler({
