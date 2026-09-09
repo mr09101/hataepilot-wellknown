@@ -2,6 +2,9 @@
 
 ## 2026-09-09 차량 목록 502 원인 — Workers redirect 옵션 미지원
 
+- **운영 복구 확인:** 구현 `d914a7dc27924d7232158bf3ca2f7f3ca33862b7`을 main push했고 Actions `34345866658` 배포가 성공했습니다. 동일한 휴대폰의 기존 refresh token으로 갱신 HTTP200 → 차량 목록 HTTP200 → 차량2대 파싱 성공, 기존 차량 선택 보존을 확인했습니다. 재로그인은 필요하지 않았습니다. 비식별 근거: `D:\AI PROJECT\tesla-drive-assist\build\audio-mix-2026-09-09\vehicle-list-after-workers-fix.json`.
+- 최종 Node49/49, workerd6/6, Wrangler Functions build 통과. 독립 인증 검수도 OAuth13/13 PASS 및 추가 확정 P1/P2 없음. 브라우저 로그인 자체, 실차 목적지 전송·웰컴 명령은 이번 복구 검사에 포함하지 않았습니다.
+
 - 주소 교정 `73001562478ba5e258bf99db9851b21a0cf06d8c`은 Actions `34344433048` 배포 성공했으나 휴대폰 502가 계속돼 추가 조사했습니다.
 - 실제 workerd 런타임에 빌드된 Pages 번들을 넣고 모든 outbound를 모의 응답으로 대체하자, 공급자 호출 0회에서 `redirect: error` 미지원 TypeError → 502가 재현됐습니다. Node의 fetch 모의 검사만으로는 놓쳤던 실행 환경 차이입니다.
 - `oauth-proxy.js`를 Workers가 지원하는 `redirect: manual`로 바꾸고 300~399는 본문 취소 후 고정 502로 거부합니다. 외부 Location으로 토큰을 보내지 않습니다. 기존 크기·시간 제한, 비밀값 비출력, no-store는 유지합니다.
