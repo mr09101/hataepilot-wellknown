@@ -3,13 +3,15 @@
 ## 2026-09-10 개인 무선 업데이트·복구 서버
 
 - `updates/src`에 인증 Worker/SQLite Durable Object 예산/엄격한 manifest를 구현했습니다. `hataepilot.com/updates/*`에서 비공개 R2 Standard 고정3객체를 사용합니다. 공개 복구 안내 `app-recovery/index.html`만 Pages 허용 목록에 추가했으며 APK·암호·개발 소스는 정적 배포에서 제외합니다. 기존 OAuth·차량 명령 코드와 시크릿은 수정하지 않았습니다.
-- **현재 원격 OTA는 미배포입니다.** Chrome 로그인 후 Workers Free는 확인했으나 R2 미가입이며 기존 토큰의 R2/Workers 조회가403입니다. R2 가입은 초과 사용량 결제 동의를 포함해 사용자 최종 확인이 필요합니다. 이번 로컬 구현에서 계정 설정·R2·Worker·Secret 원격 변경은 0건입니다. Pages HTML 배포 여부는 아래 후속 배포 기록을 확인합니다.
-- 운영 정본: `D:\AI PROJECT\hataepilot-wellknown\updates\운영-안내.md`. 앱 정본: `D:\AI PROJECT\tesla-drive-assist\docs\무선업데이트-구현과-검수-2026-09-10.md`. 앱 정상판0.2/code2 설치·복구판code3 파일검증과 서버 실제 무선 설치는 구분합니다.
+- **원격 OTA 배포와 두 APK의 실제 HTTPS 다운로드 검증을 완료했습니다.** 사용자 명시 승인 후 R2 활성화, Standard private 버킷 생성, Worker/SQLite DO/해시 Secret 배포와 고정3파일 게시를 진행했습니다. Workers Free를 유지합니다. R2 토큰은 조회전용 및 해당버킷 ObjectRW로 분리·30일(2026-10-10) 만료이며 PC 프로젝트 ignored `.env.local`에 보관했습니다. 공유 루트 Cloudflare 토큰과 기존 차량 명령 시크릿은 변경하지 않았습니다.
+- 운영 정본: `D:\AI PROJECT\hataepilot-wellknown\updates\운영-안내.md`. 앱 정본: `D:\AI PROJECT\tesla-drive-assist\docs\무선업데이트-구현과-검수-2026-09-10.md`. 앱 정상판0.2/code2 설치·복구판code3 파일검증과 휴대폰의 실제 무선 설치는 구분합니다.
 - 예산: 인증 실패는 DO/R2 접근 전 거부. UTC 조회100/일·1000/월, 다운로드4/일·20/월·4GiB/월. 영속 원자 예약 성공 후만 저장소를 읽고, 부분 다운로드 환급/자동 재시도는 하지 않습니다. 대상버킷 최대 APK384MiB+manifest16KiB이며 계정 전체 무료량을 보장하지는 않습니다.
 - 게시 도구 `updates/publish.mjs`는 기본 dry-run, `--publish --confirm-account-free-headroom`일 때만 AWS CLI v2/S3 PutObject를 사용합니다. 실제 APK 패키지/코드/서명/SHA/크기/minSdk·비디버그 검사, private/Standard/고정키/최대용량 사전검사, current→recovery→manifest마지막 게시와 HEAD/최종inventory검사를 합니다. 중간실패는 후속PUT을 중단하며 같은 검증산출물 재게시로 복구합니다. 부분교체의 일시503은 운영문서에 명시했습니다.
 - 검증: OTA Node39/39, 전체 Node89/89 PASS. Wrangler4.130.0 `deploy --dry-run` 성공. 실제 APK aapt/apksigner/SHA dry-run current2/recovery3, APK합계250315756bytes, remoteWritesPerformed=false. 독립 보안 검수의 확정 P1/P2 잔여0. 공개 웹 desktop/mobile, JS미실행 암호보호와 주차버튼/오류복귀 검수.
-- **실제 local workerd+SQLite DO**: `/updates/` 302→`/app-recovery/`, 무인증/오인증401; 정상 dummy인증 동시110회에서 빈localR2로503 정확히100회(예약성공), 예산초과429 정확히10회 및 추가429/숫자Retry-After. 실제 R2/AWS 요청은 없었습니다. 로컬 workerd는 검수 후 종료했습니다. 원격 인증·checksum/metadata/HEAD 호환·실파일 다운로드·폰 복구 설치는 첫 활성화 후 확인해야 합니다.
-- 시작 HEAD `96d11e11a6a2c25e4aeaa31b090399b6c15c3f10`; 앱도 시작 `dc00c829bd45a542d68e5a710913d66f8bb8a19e`에서 작업했습니다. worker의 쓰기 소유권을 반환받아 상위 세션이 문서·staged비밀검사·커밋/푸시를 마무리합니다. 최종해시는 `git log -1`과 앱 FINAL_KEEP 검증정보를 확인합니다. APK/비밀은 커밋하지 않습니다.
+- **실제 local workerd+SQLite DO**: `/updates/` 302→`/app-recovery/`, 무인증/오인증401; 정상 dummy인증 동시110회에서 빈localR2로503 정확히100회(예약성공), 예산초과429 정확히10회 및 추가429/숫자Retry-After. 이 단계는 로컬 검사였으며 종료했습니다. 이후 실제 AWS CLI2.36.41의 Standard/private·checksum·metadata·HEAD·최종inventory 검사와 게시를 통과했습니다. 고정3객체 합계250316568bytes, `build/ota-live-publish-2026-09-10.log` 참조.
+- 실제 HTTPS는 무인증/오인증401·정상manifest200/원본일치·Range416·잘못된SHA409·주차미확인409·다른Origin403/no-store와 정상GET·복구POST200/전체SHA·크기 원본일치를 확인했습니다. `build/ota-live-verification-powershell-2026-09-10.json` 참조. 기본 Python UA의 Cloudflare1010 차단을 확인한 뒤 기본 PowerShell HTTP 클라이언트로 검증했고 사이트 보호 설정은 유지했습니다. 실제 폰 설치·복구는 미검증이며 최종 ADB 연결은 없었습니다.
+- R2 게시 토큰은 새 파일을 올리는 PC에서만 사용합니다. 만료되어도 Worker R2 binding과 휴대폰 업데이트 암호는 그대로여서 기존 APK 다운로드는 지속됩니다. Wrangler OAuth는 승인 범위 account/zone read·scripts/routes write 및 OS keyring 보관입니다. 127.0.0.1의 일회성 고정 파일 저장 경로는 독립 보안 소스 검수 후 비밀 출력 없이 사용하고 종료했습니다.
+- 구현 `a8dfecbfaf25be87d57e90043895bfb9984050e8`과 앱 `abf2aa1f6313d206455182cd37084ea69addf2fb`을 main에 푸시했습니다. Pages Actions34372716376 성공, 운영 공개 화면/인라인JS도 실제 확인했습니다. 자동 삽입 Cloudflare 외부 beacon은 meta CSP가 허용하지 않으며 요청·실행 흔적0이었습니다. 배포 결과 후속 문서의 최종해시는 `git log -1`과 앱 FINAL_KEEP 검증정보를 확인합니다. APK/비밀은 커밋하지 않습니다.
 
 ## 2026-09-09 문서 이름 정리
 

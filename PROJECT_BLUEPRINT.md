@@ -4,7 +4,7 @@
 
 ## 1. 제품 요구사항 — 구현됐으나 검증 필요
 
-- 개인 APK 무선 업데이트·같은 서명 복구판·사용량 제한과 고정 복구 안내를 제공합니다. 로컬 구현은 완료했고 R2 구독·권한/배포 및 실제 인터넷 설치는 남았습니다.
+- 개인 APK 무선 업데이트·같은 서명 복구판·사용량 제한과 고정 복구 안내를 제공합니다. 승인받은 private R2/Worker 배포와 정상·복구 파일의 실제 HTTPS 다운로드/해시 대조를 완료했습니다. 휴대폰 실제 설치·복구는 남았습니다.
 - `hataepilot.com`에서 Tesla OAuth 토큰 교환, 카메라 데이터, 개인용 웰컴라이트 명령을 제공합니다.
 - 웰컴라이트는 인증된 소유 차량이 최신 상태에서 주차·무탑승일 때만 전조등을 한 번 점멸합니다.
 - 코드와 mock 검증 및 Cloudflare 코드 배포(d438e159)는 완료했습니다. 서버 키 저장 승인·설정, 차량 동의/가상키, 실제 차량 end-to-end 검증이 남았습니다.
@@ -25,7 +25,7 @@
 
 ## 4. 보안·개인정보 기준 — 구현됐으나 검증 필요
 
-- OTA는 32byte 개인 암호의 SHA256만 Worker Secret에 저장합니다. 인증 전 R2/DO 비접근, POST 동일출처/주차확인, 응답 no-store/nosniff, 크기/버전/서명/디버그 APK/배포경계 검사. 독립 보안 재검수 P1/P2잔여0, 실제 원격 권한·저장소 검증은 남았습니다.
+- OTA는 32byte 개인 암호의 SHA256만 Worker Secret에 저장합니다. 인증 전 R2/DO 비접근, POST 동일출처/주차확인, 응답 no-store/nosniff, 크기/버전/서명/디버그 APK/배포경계 검사. 독립 보안 재검수 P1/P2잔여0, 실제 Standard/private·R2 metadata·HTTP 인증/주차 경계 검증도 통과했습니다. 게시권한은30일 만료이며 기존 다운로드 인증과 분리합니다.
 - 2026-09-09 전체 보안 강화: HTTP 입력→고정 Tesla API, 공공 원본→정규화 DB→공개 배포 경계에서 본문 크기·시간, 응답 캐시, 부분/손상 수집 게시 문제를 수정했습니다. Node 48·Python 6·Functions build와 독립 검수를 통과했습니다. 위협 모델·남은 운영 범위: `docs/SECURITY_REVIEW_2026-09-09.md`. 명령 키 업로드와 실제 차량 검증은 여전히 별도입니다.
 
 - 근거: `docs/WELCOME_LIGHTS_SECURITY.md`
@@ -49,7 +49,7 @@
 
 ## 7. 테스트와 검수 기준 — 구현됐으나 검증 필요
 
-- OTA Node39/전체89 PASS, Wrangler deploy dry-run, 실제APK dry-run, local workerd+SQLite 인증·동시요청한도 검사. 웹 desktop/mobile 및 보안 독립검수. 실제 R2·AWS호환·인터넷다운로드·폰 복구설치는 미검증입니다.
+- OTA Node39/전체89 PASS, Wrangler deploy dry-run, 실제APK dry-run, local workerd+SQLite 인증·동시요청한도 검사. 웹 desktop/mobile 및 보안 독립검수. 실제 R2/AWS checksum·metadata·HEAD·고정3객체250316568bytes, 운영 인증/주차/Origin/Range 경계 및 정상GET·복구POST 다운로드 원본SHA 일치를 확인했습니다. 폰의 운영 조회·설치·복구와 실차 검사는 남았습니다.
 - `npm test`, 네 JavaScript 구문의 `node --check`, `git diff --check`를 완료 조건으로 사용합니다.
 - 공식 ECDH·세션 벡터와 독립 HMAC/AES-GCM 벡터, 인증·입력·상태 실패 사례를 검증합니다.
 - 실제 차량에서는 주차·무탑승·수동 1회 점멸만 허용하며 자동 접근 테스트는 그 이후에 수행합니다.
@@ -69,7 +69,7 @@
 
 ## 10. 완료 증거와 보고 형식 — 구현됐으나 검증 필요
 
-- OTA 소스/테스트는 `updates`, `tests/ota-*.test.js`; 운영·복구 절차는 `updates/운영-안내.md`. 실제기기/최신APK는 `D:\AI PROJECT\tesla-drive-assist\FINAL_KEEP`. 원격미완료를 전체완료로 세지 않습니다.
+- OTA 소스/테스트는 `updates`, `tests/ota-*.test.js`; 운영·복구 절차는 `updates/운영-안내.md`. 실제기기/최신APK는 `D:\AI PROJECT\tesla-drive-assist\FINAL_KEEP`. 실제 배포/다운로드 증거는 `build/ota-live-publish-2026-09-10.log`, `build/ota-live-verification-powershell-2026-09-10.json`입니다. 폰 설치 미실증을 전체완료로 세지 않습니다.
 - 코드: `functions/api/welcome-lights.js`, `functions/_lib/*.js`
 - 테스트: `tests/*.test.js`
 - 보안 설계: `docs/WELCOME_LIGHTS_SECURITY.md`
