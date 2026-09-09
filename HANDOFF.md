@@ -1,4 +1,8 @@
-# HANDOFF
+# 하태파일럿 서버 작업 인수인계
+
+## 2026-09-09 문서 이름 정리
+
+- Android 문서의 한글 파일명 변경에 맞춰 연결 경로 두 곳을 갱신하고 이 문서의 첫 제목을 한글로 정리했습니다. 서버 보고서의 고유 파일명은 유지했습니다. 서버 코드·설정 변경이 없어 빌드/런타임 검사는 재실행하지 않고 연결 대상 2곳 존재를 확인했습니다. 시작 커밋은 `f6bfb6b`이며 관련 문서만 커밋·푸시합니다. 최종 커밋은 `git log -1`을 확인합니다.
 
 ## 2026-09-09 차량 목록 502 원인 — Workers redirect 옵션 미지원
 
@@ -86,4 +90,4 @@ git diff --check
 - 명령 응답이 끊기면 차량에서 이미 실행됐을 수 있으므로 `command_outcome_unknown`을 자동 재시도하면 안 됩니다.
 - `is_user_present` 또는 상태 timestamp가 없으면 의도적으로 거부합니다.
 - `deploy-pages.yml`은 Functions·공개 자산 변경 push와 수동 실행에서 고정 스테이징을 배포하며, 카메라 갱신 workflow도 같은 스테이징만 배포합니다.
-- Android 최종 통합 보고서: `D:\AI PROJECT\tesla-drive-assist\docs\VEHICLE_CONVENIENCE_2026-09-09.md`. 현재 휴대폰의 vehicle_cmds 동의, 차량 가상키 등록, 실제 주차/점유 응답과 점멸은 미검증입니다.
+- Android 최종 통합 보고서: `D:\AI PROJECT\tesla-drive-assist\docs\차량-목적지전송과-웰컴라이트-구현검증-2026-09-09.md`. 현재 휴대폰의 vehicle_cmds 동의, 차량 가상키 등록, 실제 주차/점유 응답과 점멸은 미검증입니다.

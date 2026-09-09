@@ -46,4 +46,4 @@ git diff --check
 - 실제 새 로그인/MFA, 토큰 갱신 공급자 응답, 실제 차량 명령 검증은 이번 가짜 입력 테스트와 구분합니다.
 - 차량 명령 개인키·subject를 Cloudflare에 저장하는 이전 승인 요청은 여전히 대기 상태입니다. 일반 보안 요청을 그 업로드 승인으로 해석하지 않았습니다.
 
-관련 근거: [Tesla OAuth 공식 문서](https://developer.tesla.com/docs/fleet-api/authentication/third-party-tokens), 기존 `docs/WELCOME_LIGHTS_SECURITY.md`, Android 저장소의 `docs/SECURITY_REVIEW_2026-09-09.md`.
+관련 근거: [Tesla OAuth 공식 문서](https://developer.tesla.com/docs/fleet-api/authentication/third-party-tokens), 기존 `docs/WELCOME_LIGHTS_SECURITY.md`, Android 저장소의 `docs/앱-보안-점검결과-2026-09-09.md`.
