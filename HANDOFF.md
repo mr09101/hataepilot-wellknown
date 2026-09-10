@@ -1,5 +1,12 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-10 상단 대기 알림 수정판0.3 재게시
+
+- 기존 승인된 private R2/Worker/개인 암호 경로에 정상0.3/code4·복구0.3-recovery/code5를 재게시했습니다. 서버 코드/권한/인증/요금제 변경 없음. 고정3객체·250431430bytes, APK 업로드 checksum/HEAD 확인 후 manifest를 마지막에 게시했습니다.
+- 정상판 실제 인증 HTTPS200·원본SHA/크기 일치,401/416/409/403 경계 확인. 이번 검증 다운로드는 정상판1회만 사용했으며 복구판은 PUT/HEAD/서명/메타데이터 확인까지만 수행했습니다. 앱 구현커밋 `59a2b903f8ca98d3e99670eb32d1ee2780befb12`. 기존 서버소스 시작6681a441, 게시기록 문서만 커밋·푸시합니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\대기-상단알림-수정과-검수-2026-09-10.md`. 증거 `D:\AI PROJECT\hataepilot-wellknown\build\ota-idle-fix-publish-2026-09-10.log`·`ota-idle-fix-https-2026-09-10.json`. 게시키·암호·APK는 Git 제외입니다.
+- 새폰설치·실제상단바/BT·모바일/넓은Android·복구설치는 미검증입니다. 마지막 직접확인폰0.2와 서버최신0.3을 구분합니다. 복구소스9062dcd는 OTA 메뉴를 포함하며 다음 정상판code6 이상입니다.
+
 ## 2026-09-10 개인 무선 업데이트·복구 서버
 
 - `updates/src`에 인증 Worker/SQLite Durable Object 예산/엄격한 manifest를 구현했습니다. `hataepilot.com/updates/*`에서 비공개 R2 Standard 고정3객체를 사용합니다. 공개 복구 안내 `app-recovery/index.html`만 Pages 허용 목록에 추가했으며 APK·암호·개발 소스는 정적 배포에서 제외합니다. 기존 OAuth·차량 명령 코드와 시크릿은 수정하지 않았습니다.
