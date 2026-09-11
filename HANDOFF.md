@@ -1,5 +1,13 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-12 안내 오탐·통화 HUD 수정판0.4 게시
+
+- 기존 승인된 private Standard R2/Worker 경로에 정상0.4/code6·복구0.4-recovery/code7을 게시했습니다. 서버 소스/인증/권한/요금제 변경 없음. 고정3객체·250529778bytes이며 APK checksum/HEAD 검증 뒤 manifest를 마지막으로 게시했습니다.
+- 정상판 인증 HTTPS200·원본SHA/크기 일치, manifest200/원본 일치, 인증401·Range416·SHA409·주차409·Origin403/no-store 확인. 다운로드 한도1회 사용, 복구판은 PUT/HEAD·로컬 서명 검증까지이며 실제 폰/복구 설치는 미실행입니다.
+- 앱 구현 `a24c1862e86993fc451034a73b911495e2353675`, 전용 브랜치 `codex/guidance-diagnostics-direction-call`, 앱 [PR #1](https://github.com/mr09101/tesla-drive-assist/pull/1). 정상SHA `d0082ee7cbdcc7cdeb2dc99305b57118e8de13ef8861b62a40bcd88eab79a193`/125514077bytes, 복구SHA `8435fab0c5ec62820b204a29df44d4d54f5926a0045e9c5f762c5fef430eb608`/125014771bytes.
+- 복구 소스는 앱0.3 `9837bd87b1be40b177d35ba9ff6b47bf06a56f92`이며 다음 정상판code8 이상. 정본 `D:\AI PROJECT\tesla-drive-assist\docs\안내-오탐과-통화-진단개선-2026-09-11.md`. 증거는 앱 `build\guidance-ota-publish-2026-09-12.log`·`guidance-ota-https-2026-09-12.json`·`ota-guidance-fix-2026-09-12\release-verification.json`.
+- 서버 기록 브랜치 `codex/guidance-ota-release-record`, 시작 `550e931daa69a2fcfe26807738ad13c189e970cc`. 이 HANDOFF만 검증·커밋·브랜치 푸시/PR, main 직접 푸시 없음. 서버 제품 코드가 바뀌지 않아 Node 전체 단위는 반복하지 않았고 실제 게시기 계약 dry-run/게시/HTTPS를 확인했습니다. 최종 기록 커밋은 `git log -1` 참조. 키/암호/APK/개인 상태는 커밋하지 않습니다.
+
 ## 2026-09-10 상단 대기 알림 수정판0.3 재게시
 
 - 기존 승인된 private R2/Worker/개인 암호 경로에 정상0.3/code4·복구0.3-recovery/code5를 재게시했습니다. 서버 코드/권한/인증/요금제 변경 없음. 고정3객체·250431430bytes, APK 업로드 checksum/HEAD 확인 후 manifest를 마지막에 게시했습니다.
