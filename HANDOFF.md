@@ -1,5 +1,12 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-12 단속 안내창 여백 수정판0.4.1 게시
+
+- 기존 승인된 private Standard R2/Worker에 정상0.4.1/code8·복구0.4.1-recovery/code9를 게시했습니다. 서버 제품 코드·인증·권한·요금제 변경 없음. 앱 구현 `a822740afcfc4a95e1f9a191941f43553e8c37ee`, 복구 소스0.4 `225b37fc2e82b68655d18d986647ebba2a590afc`. 다음 정상판code10 이상.
+- 게시기 dry-run→APK checksum/HEAD→manifest마지막→고정3객체/250611751bytes 확인. 실제 HTTPS manifest200/원본일치·인증401·Range416·SHA409·주차409·Origin403/no-store 확인. 작은 화면 수정이므로 설치 파일 다운로드 한도를 남기기 위해 새 APK 전체 HTTPS 다운로드는 반복하지 않았습니다(이번 다운로드 쿼터0회). 실제 폰 화면·새 설치·복구 설치는 미검증입니다.
+- 정상SHA `6424584d810786596e9847e8d060c996f72c7bc5af8717bea836d6127757e175`/125514073bytes, 복구SHA `9a23590149f219e08800b94f039c956784c1ee68db81f99010a192a6be920438`/125096695bytes. 앱 증거 `D:\AI PROJECT\tesla-drive-assist\build\hud-spacing-ota-publish-2026-09-12.log`, `hud-spacing-ota-https-2026-09-12.json`, `ota-hud-spacing-2026-09-12\release-verification.json`.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\단속표지-여백-조정-2026-09-12.md`, 앱 [PR #1](https://github.com/mr09101/tesla-drive-assist/pull/1). 서버는 이 HANDOFF만 `codex/guidance-ota-release-record` 브랜치/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 기록하며 main 직접 푸시 없음. 시작 기록 커밋5bb7916, 최종 커밋은 git log -1 참조. 제품 코드 변경이 없어 서버 전체 단위는 반복하지 않았고 게시기 검증·실제 HTTP를 실행했습니다. 키/암호/APK는 Git 제외.
+
 ## 2026-09-12 안내 오탐·통화 HUD 수정판0.4 게시
 
 - 기존 승인된 private Standard R2/Worker 경로에 정상0.4/code6·복구0.4-recovery/code7을 게시했습니다. 서버 소스/인증/권한/요금제 변경 없음. 고정3객체·250529778bytes이며 APK checksum/HEAD 검증 뒤 manifest를 마지막으로 게시했습니다.
