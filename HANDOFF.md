@@ -1,5 +1,12 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-12 차계부 상세0.5 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3경로에 정상0.5/code10·복구0.5-recovery/code11을 게시했습니다. 앱 구현 `ef52e700a28f309b3c0e87dedc4f2a926d09dd56`, 복구 소스0.4.1 `5b72bee8ce6b09e8567161e3dbfd727436ada877`, [앱 초안 PR #2](https://github.com/mr09101/tesla-drive-assist/pull/2). 서버 제품코드/인증/권한/요금제 변경 없음. 다음 정상판은code12 이상입니다.
+- dry-run→APK checksum/HEAD→manifest마지막→고정3객체/250792011bytes(두 APK250790992bytes) 확인. 실제HTTPS manifest200/원본일치·인증401·Range416·SHA409·주차409·Origin403/no-store 통과. 새 APK 전체 HTTPS 다운로드는 사용자 한도를 남기기 위해 반복하지 않았으며 이번 검증 다운로드 쿼터0회입니다. 실제 새폰/실차/복구 설치는 미검증입니다.
+- 정상SHA `c996f59f892ee4840824d0dbacccdb3c9f937af2b608f5254c16adb1fde5756f`/125694301bytes, 복구SHA `1cebe55ff1d1d930ccea69da160e830683cd25d396b23bf1486e8c48a5c6759e`/125096691bytes. 증거는 앱 `build\ota-trip-details-2026-09-12\release-verification.json`, `build\trip-details-ota-publish-2026-09-12.log`, `build\trip-details-ota-https-2026-09-12.json`입니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\차계부-상세기록-구현과-검수-2026-09-12.md`. 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 기록하며 main 직접 푸시 없음. 시작 기록커밋c9eec45, 최종 커밋은 git log -1 및 앱 FINAL_KEEP JSON을 참조합니다. 제품 코드 변경이 없어 서버 전체 단위는 반복하지 않았고 기존 게시기 계약·실제HTTP를 검증했습니다. 키/암호/APK는 Git 제외입니다.
+
 ## 2026-09-12 단속 안내창 여백 수정판0.4.1 게시
 
 - 기존 승인된 private Standard R2/Worker에 정상0.4.1/code8·복구0.4.1-recovery/code9를 게시했습니다. 서버 제품 코드·인증·권한·요금제 변경 없음. 앱 구현 `a822740afcfc4a95e1f9a191941f43553e8c37ee`, 복구 소스0.4 `225b37fc2e82b68655d18d986647ebba2a590afc`. 다음 정상판code10 이상.
