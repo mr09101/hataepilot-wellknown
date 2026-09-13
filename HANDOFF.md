@@ -1,5 +1,14 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-14 휴대폰 진단 기록0.5.4 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.4/code18**, 직전0.5.3 동작 복구 **0.5.4-recovery/code19**를 게시했습니다. 앱 구현 `8a2513f74ce137ab820e9de8b6ef6053d8803ea3`/[초안 PR #6](https://github.com/mr09101/tesla-drive-assist/pull/6), 브랜치 `codex/phone-diagnostics-media`, 시작/복구 `2a8f68939816508cb7c6ee2aec0e883384e24b83`. 실제 일반폰 설치·추출 APK SHA 일치 및 임시 시험 앱 제거까지 확인했습니다. 다음 정상판code20 이상.
+- 두 APK251102288bytes, manifest 포함 **251103325bytes**. 정상SHA `b0752efff8c327785f702063b8f271a091538fd7c5ac0d749d9b47c008625335`/125776217bytes, 복구SHA `8fcf99998a17fdbbe109f888693a362e44a9311da6e0053a61b7d0f70fc2c6be`/125326071bytes. 기존 서명·카리나1872파일·보호6소스 일치/설정된 비밀값 APK 탐지0.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시→최종3객체 확인. 실제HTTPS manifest200/로컬 원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 전체 APK HTTPS GET은 한도 보존을 위해 반복하지 않았습니다.
+- 서버 제품·인증·권한·요금제·한도는 그대로이며 로그 자동 업로드는 추가하지 않았습니다. 앱 로컬 진단과 사용자 선택 TXT 저장만 추가했습니다. 실제 버벅임/YouTube 원인 확정, 실차/복구판 설치는 남았습니다. Grok 보안 별도 항목 전체를 해결했다고 주장하지 않습니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\휴대폰-버벅임과-안내로그-수정검수-2026-09-14.md`. 앱 증거 `build/phone-diagnostics-2026-09-14/validation.json`, `build/ota-phone-diagnostics-2026-09-14/release-verification.json`, `build/phone-diagnostics-ota-publish-2026-09-14.log`, `build/phone-diagnostics-ota-https-2026-09-14.json`.
+- 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD `4298d203ed864136fe8713e6190968b99353453d`, 최종 해시는 git log -1/앱FINAL_KEEP 검증정보 참조. 서버 제품 변경이 없어 전체 단위는 반복하지 않고 실제 게시/HTTPS를 검증했습니다. 키·암호·APK는 Git 제외, main 직접 푸시·병합 없음.
+
 ## 2026-09-13 터널 GPS 구간단속 수정0.5.3 게시
 
 앱 구현 `4afb1637cb6518128697a7b3d661edf1622df238`, 복구 소스 `22ce18fb7c521c8106bb998132a9c9197d5a0a3a`(직전0.5.2), [앱 초안 PR #5](https://github.com/mr09101/tesla-drive-assist/pull/5).
