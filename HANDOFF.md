@@ -1,5 +1,12 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-13 BT 도착 오판 수정0.5.1 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상0.5.1/code12·복구0.5.1-recovery/code13을 게시했습니다. 앱 구현f2e594eff614ca16a985abae94a243cececc8792, 복구소스824b7dc42b037a995b4fceace38849645569e423(직전0.5), [앱 초안 PR #3](https://github.com/mr09101/tesla-drive-assist/pull/3). 서버 제품코드/인증/권한/요금제 변경 없음. 다음 정상판code14 이상.
+- dry-run→checksum/HEAD→manifest마지막→고정3객체/250988619bytes 확인(두APK 250987596bytes). 실제HTTPS manifest200/원본일치·인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 새 APK 전체 HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 실제 새폰·실차·복구 설치 미검증.
+- 정상SHA f77b5c6ccad0979523020dd9d07b9b54bd8d129c749f187eab19d10b9fba964f/125710681bytes, 복구SHA 74af49312cf6e9d29098954f42402c74cdf120726bb1df54f96f3987d328d222/125276915bytes. 앱 build/ota-bluetooth-handover-2026-09-13/release-verification.json, bluetooth-handover-ota-publish-2026-09-13.log, bluetooth-handover-ota-https-2026-09-13.json 참조.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\블루투스-전환-도착오판-수정과-검수-2026-09-13.md`. 서버는 이 HANDOFF만 기존 codex/guidance-ota-release-record/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작a7c91e5, 최종커밋은 git log -1/앱 FINAL_KEEP JSON 참조. 서버 제품코드 변경이 없어 전체 단위는 반복하지 않고 기존 게시기/실제HTTP를 검증했습니다. 키/암호/APK Git 제외.
+
 ## 2026-09-12 차계부 상세0.5 게시
 
 - 기존 승인된 private Standard R2/Worker 고정3경로에 정상0.5/code10·복구0.5-recovery/code11을 게시했습니다. 앱 구현 `ef52e700a28f309b3c0e87dedc4f2a926d09dd56`, 복구 소스0.4.1 `5b72bee8ce6b09e8567161e3dbfd727436ada877`, [앱 초안 PR #2](https://github.com/mr09101/tesla-drive-assist/pull/2). 서버 제품코드/인증/권한/요금제 변경 없음. 다음 정상판은code12 이상입니다.
