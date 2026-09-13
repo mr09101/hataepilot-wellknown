@@ -1,5 +1,17 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-13 터널 GPS 구간단속 수정0.5.3 게시
+
+앱 구현 `4afb1637cb6518128697a7b3d661edf1622df238`, 복구 소스 `22ce18fb7c521c8106bb998132a9c9197d5a0a3a`(직전0.5.2), [앱 초안 PR #5](https://github.com/mr09101/tesla-drive-assist/pull/5).
+
+- 정상 **0.5.3/code16**, 복구 **0.5.3-recovery/code17**(직전 정상0.5.2 동작)을 기존 private Standard R2/Worker에 게시했습니다. 고정3객체 251,054,140bytes. 다음 정상판은 code18 이상 필요합니다.
+- personal/복구 빌드·기존 v2 서명·암호화 서명 백업·카리나1872파일 동일·보호 DB/계정/설정6소스 동일·설정된 비밀값 APK 탐지0 확인. 정상SHA `c0547eb70c009476b015bbdf416e557e8f14fed54b6dae3f06836e8c23aae497`/125743449bytes, 복구SHA `da5ea21c028d1a0c08146903bc9f4b2e1ad6a728d68fbebfd47d4da4f2c5ce6a`/125309683bytes.
+- dry-run→APK checksum/HEAD→manifest마지막 게시 후 실제HTTPS manifest200/원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 서버 제품/인증/권한/요금제/한도 변경 없음. APK 전체HTTPS 다운로드는 한도 보존을 위해 반복하지 않았습니다.
+- 증거: 앱 `build/ota-tunnel-section-2026-09-13/release-verification.json`, `build/tunnel-section-ota-publish-2026-09-13.log`, `build/tunnel-section-ota-https-2026-09-13.json`. 실제 폰 새설치·일반/큰글꼴/넓은Android/TalkBack·통화·실제터널·화면OFF·복구설치는 미검증입니다.
+
+서버 제품코드 변경 없이 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD2aac6e5, 최종커밋은 git log -1/앱FINAL_KEEP JSON 참조. 서버단위는 코드변경이 없어 반복하지 않았으며 기존 게시기와 운영HTTPS를 검증했습니다. 정본 `D:\AI PROJECT\tesla-drive-assist\docs\터널-GPS-구간단속-수정검수-2026-09-13.md`. 키/암호/APK는Git제외.
+
+
 ## 2026-09-13 P단·반대편 카메라 수정0.5.2 게시
 
 - 기존 승인된 private Standard R2/Worker 고정3객체에 정상0.5.2/code14·복구0.5.2-recovery/code15를 게시했습니다. 앱 구현 `e1cf97d5ba71d3e31c2beea26cf06a0ba37617b3`, 복구소스 `9f4920701ffb981ae1f469c005f2b023d26f11e1`(직전 정상0.5.1), [앱 초안 PR #4](https://github.com/mr09101/tesla-drive-assist/pull/4). 서버 제품코드/인증/권한/요금제/한도 변경 없음. 다음 정상판code16 이상.
