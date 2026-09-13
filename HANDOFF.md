@@ -1,5 +1,13 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-13 P단·반대편 카메라 수정0.5.2 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상0.5.2/code14·복구0.5.2-recovery/code15를 게시했습니다. 앱 구현 `e1cf97d5ba71d3e31c2beea26cf06a0ba37617b3`, 복구소스 `9f4920701ffb981ae1f469c005f2b023d26f11e1`(직전 정상0.5.1), [앱 초안 PR #4](https://github.com/mr09101/tesla-drive-assist/pull/4). 서버 제품코드/인증/권한/요금제/한도 변경 없음. 다음 정상판code16 이상.
+- dry-run→checksum/HEAD→manifest마지막→3객체 251,021,357bytes(두APK 251,020,368bytes) 확인. 실제HTTPS manifest200/원본일치·인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 새 APK 전체HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 새폰/실차/복구 설치 미검증.
+- 정상SHA `33af1dfbd8de350e222d0ce70c1d3169279224b09fb7f3311786a0b8227b5c4c`/125727065bytes, 복구SHA `50063af682f63a1fdb6812014e39bf92f85352baf8eaaf167f6e9e8390e1f5b8`/125293303bytes. 앱 `build/ota-park-camera-2026-09-13/release-verification.json`, `park-camera-ota-publish-2026-09-13.log`, `park-camera-ota-https-2026-09-13.json`이 증거입니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\P단-도착과-반대편카메라-수정검수-2026-09-13.md`. 서버는 HANDOFF만 기존 `codex/guidance-ota-release-record`/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작fee6eb8, 최종커밋은 git log -1/앱 FINAL_KEEP JSON 참조. 제품 변경이 없어 서버 전체 단위는 반복하지 않고 기존 게시기/실제HTTP를 검증했습니다. 키/암호/APK Git 제외.
+
+
 ## 2026-09-13 BT 도착 오판 수정0.5.1 게시
 
 - 기존 승인된 private Standard R2/Worker 고정3객체에 정상0.5.1/code12·복구0.5.1-recovery/code13을 게시했습니다. 앱 구현f2e594eff614ca16a985abae94a243cececc8792, 복구소스824b7dc42b037a995b4fceace38849645569e423(직전0.5), [앱 초안 PR #3](https://github.com/mr09101/tesla-drive-assist/pull/3). 서버 제품코드/인증/권한/요금제 변경 없음. 다음 정상판code14 이상.
