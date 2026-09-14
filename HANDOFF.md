@@ -1,5 +1,14 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-14 장소 주소·지도0.5.5 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.5/code20**, 직전0.5.4 동작 복구 **0.5.5-recovery/code21**을 게시했습니다. 앱 구현 `18994edb41239e80bfc897761f7ff1fba4dde0e6`/[초안 PR #7](https://github.com/mr09101/tesla-drive-assist/pull/7), 자체 브랜치 `codex/places-address-map`, 복구 소스 `e34a9e5f48406937ff9bc28304bdc72ace60b077`. 다음 정상판code22 이상.
+- 두 APK251167820bytes, manifest 포함 **251168841bytes**. 정상SHA `b6e5ffed30ad51afc248595c5a3d9ac0e0c14abb8e2c0524824352b1716ee0f0`/125808985bytes, 복구SHA `3622d9662e8321a6ef9ad1a9c38227e5a6dfec62b705bc2d9557724c61dbfb70`/125358835bytes. 동일 서명·카리나1872개·보호6소스 일치·설정된 비밀값 APK 탐지0.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시→고정3객체 검증. 실제HTTPS manifest200/원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 전체 APK HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 서버 제품/인증/권한/요금제/한도 변경 없음.
+- 앱 JUnit466/55 suites·debug/debugAndroidTest/personal/복구·lint오류0·독립 UI/개인정보 재검수. ADB0/에뮬레이터 부재로 새폰 설치·실제 주소/지도/화면·복구 설치 미검증. 차량 속도는 공식 BLE/Telemetry 경로 조사만 수행, 새 차량 키/호출/서버 없음.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\장소-화면-검수와-테슬라-속도연동-2026-09-14.md`. 앱 증거 `build/ota-places-address-map-2026-09-14/release-verification.json`, `build/places-address-map-ota-publish-2026-09-14.log`, `build/places-address-map-ota-https-2026-09-14.json`, `build/places-address-map-2026-09-14/validation.json`.
+- 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD `e3c07f2120db329321b86e3b88e63bf0feff92ba`. 제품 코드 변경이 없어 서버 단위는 반복하지 않고 기존 게시기와 실제HTTPS를 검증했습니다. 최종 해시는 git log -1/앱FINAL_KEEP JSON을 참조합니다. 시크릿/APK Git 제외·main 직접 푸시/병합 없음.
+
 ## 2026-09-14 휴대폰 진단 기록0.5.4 게시
 
 - 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.4/code18**, 직전0.5.3 동작 복구 **0.5.4-recovery/code19**를 게시했습니다. 앱 구현 `8a2513f74ce137ab820e9de8b6ef6053d8803ea3`/[초안 PR #6](https://github.com/mr09101/tesla-drive-assist/pull/6), 브랜치 `codex/phone-diagnostics-media`, 시작/복구 `2a8f68939816508cb7c6ee2aec0e883384e24b83`. 실제 일반폰 설치·추출 APK SHA 일치 및 임시 시험 앱 제거까지 확인했습니다. 다음 정상판code20 이상.
