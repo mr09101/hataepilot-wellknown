@@ -1,5 +1,14 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-14 연결 폰 보완0.5.6.1 게시
+
+앱 구현·기기 검수 커밋 `224a846c56cb2f0bec6552b5204ed07b65c6b5a8`, 앱 기록 최종 `8d0d1492969e01697fea88d4a47b6ca3b9d8fd3f`.
+
+- 기존 private Standard R2/Worker 고정3객체를 정상0.5.6.1/code24·안정0.5.5동작 복구0.5.6.1-recovery/code25로 갱신했습니다. 총252410425bytes, 다음 정상판code26 이상. 기존서명/카리나1872/보호6소스/비밀값부재 확인. 정상SHA `95e5ba36e5dd0445a0b53cd3f3c0ec506dfa8773ce9f029c4bac6e2d684ac1a1`, 복구SHA `7f39465e47d536ad00d2694fb57ff794fc7e9bf29e47346ae6da675fc7f9f033`.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시→실제HTTPS manifest원본일치·401/416/409/403/no-store 통과. 전체 APK GET은 반복하지 않았고 제품/인증/요금제/권한/한도 변경 없음. 서버 제품 변경이 없어 서버 단위검사는 반복하지 않았습니다.
+- 연결 폰에 정상24를 데이터 유지 설치하고 동일해시·1프로필/1런처·비디버그·시험도구 제거·화면복원 확인. code22의 기기83검사와 최종24의 일반/큰글씨/넓은화면 검수 통과. 실제 차량 키 등록·속도 수신은 미실행입니다.
+- 앱 자체 `codex/tesla-ble-speed`/[초안 PR #8](https://github.com/mr09101/tesla-drive-assist/pull/8). 정본 `D:\AI PROJECT\tesla-drive-assist\docs\차량-BLE-속도-구현과-검수-2026-09-14.md`, 증거 앱 `build/tesla-ble-phone-2026-09-14/validation.json`, `build/tesla-ble-phone-ota-https-2026-09-14.json`. 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 반영합니다. 시작HEAD `955d6f0945604c2a9a4b5fee92e8e0b8146f02c5`, 최종해시는 git log -1/앱FINAL_KEEP JSON을 참조합니다. main/다른AI 브랜치 직접 푸시/병합·시크릿/APK 커밋 없음.
+
 ## 2026-09-14 차량 BLE 속도0.5.6 게시
 
 - 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.6/code22**, 직전0.5.5 동작 복구 **0.5.6-recovery/code23**을 게시했습니다. 앱 구현 `21322b7b79d42df6b3cf34106b2dcbeb5abbdf41`/[초안 PR #8](https://github.com/mr09101/tesla-drive-assist/pull/8), 자체 `codex/tesla-ble-speed`, 복구 소스 `ba15d2f6147afd8a07cff7b8c76dc6f8570cc279`. 다음 정상판code24 이상.
