@@ -1,5 +1,14 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-14 차량 BLE 속도0.5.6 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.6/code22**, 직전0.5.5 동작 복구 **0.5.6-recovery/code23**을 게시했습니다. 앱 구현 `21322b7b79d42df6b3cf34106b2dcbeb5abbdf41`/[초안 PR #8](https://github.com/mr09101/tesla-drive-assist/pull/8), 자체 `codex/tesla-ble-speed`, 복구 소스 `ba15d2f6147afd8a07cff7b8c76dc6f8570cc279`. 다음 정상판code24 이상.
+- 두 APK 252392961bytes, manifest 포함 **252394026bytes**. 정상SHA `32e579db2f6d952f6856bac9649b0c19eb8da246e5389a2347bf9b4671da0ad0`/127001358bytes, 복구SHA `8a42639647bae039d7302815d94f7ec29a06dab7b9f3bd578440bce1c9c0b8af`/125391603bytes. 기존 서명·암호화 서명 백업·카리나1872개·보호6소스 일치·설정된 비밀값 APK 탐지0.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시·최종3객체 확인. 실제HTTPS manifest200/원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. APK 전체 HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 서버 제품/인증/권한/요금제/한도 변경 없음.
+- 앱 JUnit483/57 suites·debug/debugAndroidTest/personal/복구·lint오류0·독립 UI/보안 코드 재검수. ADB0/에뮬레이터 부재로 새 화면·기기 설치·실제 Keystore/GATT/카드 승인/속도 수신·화면OFF/폰키 공존·복구 설치 미검증. BLE는 사용자 물리 승인 기반 첫 등록 TOFU와 후속 pin이며 새 서버/Fleet API 호출은 없습니다. 에이전트가 실제 차량 명령·등록을 실행하지 않았습니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\차량-BLE-속도-구현과-검수-2026-09-14.md`. 앱 증거 `build/ota-tesla-ble-speed-2026-09-14/release-verification.json`, `build/tesla-ble-speed-ota-publish-2026-09-14.log`, `build/tesla-ble-speed-ota-https-2026-09-14.json`, `build/tesla-ble-speed-2026-09-14/validation.json`.
+- 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD `6c936d3d70ad1728b04474b04d533d6008e36fa2`. 제품 변경이 없어 서버 단위는 반복하지 않고 실제 게시/HTTPS 경계를 검증했습니다. 최종 해시는 git log -1/앱FINAL_KEEP JSON을 참조합니다. 시크릿/APK Git 제외·main 직접 푸시/병합 없음.
+
 ## 2026-09-14 장소 주소·지도0.5.5 게시
 
 - 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.5/code20**, 직전0.5.4 동작 복구 **0.5.5-recovery/code21**을 게시했습니다. 앱 구현 `18994edb41239e80bfc897761f7ff1fba4dde0e6`/[초안 PR #7](https://github.com/mr09101/tesla-drive-assist/pull/7), 자체 브랜치 `codex/places-address-map`, 복구 소스 `e34a9e5f48406937ff9bc28304bdc72ace60b077`. 다음 정상판code22 이상.
