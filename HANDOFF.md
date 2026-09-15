@@ -1,5 +1,18 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-15 과속 통과 이력 0.5.7 게시 마감
+
+앱 구현 d3bdfc6301ba8844769c99e1254312502e06b2f2. Claude 준비 파일을 Codex가 재검증·게시했습니다.
+
+- 기존 private Standard R2/Worker의 current.apk·recovery.apk·manifest.json **3개 게시 완료**. 정상 **0.5.7/code26**, 복구 **0.5.7-recovery/code27**(직전0.5.6.1 동작, 소스 8d0d1492969e01697fea88d4a47b6ca3b9d8fd3f). APK 합계 **253,700,022 bytes** + manifest **1,044 bytes** = **finalBytes 253,701,066**. 다음 정상판은 **code28 이상**입니다.
+- 정상 SHA-256 `47c46abb7bbe973a17bcabac031b3c436afe834a48113ff680ba22c8d82ae1f2` / 127,099,662 bytes. 복구 SHA-256 `8cf717006db62c02d9f9c64c9bd840c06d3813e47803c0a8feca2c4cfb27e4d4` / 126,600,360 bytes. manifest SHA-256 `cfa9cad6aa20ae97925cc8c0dbd3f34f06caa2f6e948736b9e4bd8e8faf4e0ae`. FINAL_KEEP의 두 APK도 직접 해시 대조했습니다.
+- 실제 APK 패키지·버전·minSdk·비디버그·서명·SHA/bytes dry-run → private/Standard·고정키·용량 사전검사 → APK checksum/HEAD → manifest 마지막 게시 → finalKeys 3개/finalBytes 일치 확인. 준비 검증 기록의 카리나1,872개·보호6소스·비밀값 부재 결과를 보존했습니다.
+- **09:19 KST HTTPS7개 PASS**: 무인증/오인증401, manifest200/로컬 JSON 내용 일치, Range416, 잘못된SHA409, 주차 미확인409, 다른Origin403. 전부 no-store. 전체 APK HTTPS 다운로드는 하지 않았습니다. 서버 제품·인증·권한·요금제·한도는 그대로이며 대상 버킷 용량 검사가 계정 전체 무료량을 보장하지는 않습니다.
+- ADB 재조회 **0대**로 정상26 설치·새 화면·실차·복구27 설치 미검증. 마지막 확인 설치는 2026-09-14의 code24이며 현재 폰 버전은 미확인입니다. 실제 차량 명령·키 등록·룰 저장·유료 API 호출 없음. 제품 코드 추가 변경과 P2·P3는 미착수입니다.
+- 기존 JUnit XML 재집계 **501/59 suites, 실패·오류·skip0**, lint XML 오류0/경고89/힌트5. 제품 코드가 바뀌지 않아 Gradle/서버 Node 단위를 반복 실행하지 않았습니다.
+- 증거 절대 루트 D:/AI PROJECT/tesla-drive-assist: `build/overspeed-history-ota-dry-run-codex-path-2026-09-15.log`, `build/overspeed-history-ota-publish-2026-09-15.log`, `build/overspeed-history-ota-https-2026-09-15.json`. 최종 문서 커밋/원격 확인은 각 저장소 `git log -1`과 `FINAL_KEEP/과속-통과-이력-검증정보-2026-09-15.json`의 publication 항목을 따릅니다.
+- 정본 D:/AI PROJECT/tesla-drive-assist/docs/과속-통과-이력-구현과-검수-2026-09-15.md. 사용자 지정 서버 codex/guidance-ota-release-record/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)의 HANDOFF만 갱신합니다. 인수 HEAD cfa9b9adcf1937ad60440ce7e7246b9851724ce8. 앱 문서는 지정 claude/overspeed-pass-history/[초안 PR #10](https://github.com/mr09101/tesla-drive-assist/pull/10). main 푸시·병합, 시크릿·APK·원시 캡처 커밋 없음.
+
 ## 2026-09-14 연결 폰 보완0.5.6.1 게시
 
 앱 구현·기기 검수 커밋 `224a846c56cb2f0bec6552b5204ed07b65c6b5a8`, 앱 기록 최종 `8d0d1492969e01697fea88d4a47b6ca3b9d8fd3f`.
