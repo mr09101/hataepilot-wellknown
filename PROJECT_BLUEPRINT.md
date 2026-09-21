@@ -1,6 +1,8 @@
 # 하태파일럿 서버 프로젝트 기준서
 
-최신 OTA 작업은 `updates/운영-안내.md`와 `HANDOFF.md`의 2026-09-10 기록을 따릅니다. 로컬 구현·검수와 원격 배포 완료를 구분합니다.
+최신 작업(2026-09-21)은 [수동 진단 전송·조회](updates/진단-전송과-조회-운영안내.md)와 `HANDOFF.md` 맨 위 기록을 따릅니다. 진단 Worker 실제 배포·HTTP 검증 및 OTA 정상0.5.9/code30·복구31 게시 완료, 새폰 전송/설치·실차는 **구현됐으나 검증 필요**입니다. 아래 예전 날짜의 증거는 당시 이력입니다.
+
+이번 영향은 제품/범위(1·2), SQLite DiagnosticsInbox와 typed 상태(3), 기기 쓰기·관리자 읽기 분리 및 보관(4), 업로드20/일·200/월/128KiB·200events, 관리자100/일·1000/월(5), 만료알람·중복·부분실패/조회CLI(6),98단위·10런타임·13진단HTTPS·7OTA HTTPS 및 독립 보안 검수(7·9·10)입니다. 기존 차량 명령과 OAuth 정책·OTA 예산을 새로 확장하지 않습니다.
 
 ## 1. 제품 요구사항 — 구현됐으나 검증 필요
 
@@ -20,7 +22,7 @@
 
 - 앱/브라우저 → 별도 Worker → SQLite Durable Object 예산 예약 → private R2 Standard. 고정3객체, strict manifest와 APK metadata 대조. 공개 안내는 기존 Pages 허용 목록에 포함하며 인증 Worker와 분리합니다.
 - Android → Cloudflare Pages Function → Tesla Fleet API `/vehicles`, `/vehicle_data`, `/wake_up`, `/signed_command`
-- 서버는 요청 사이에 토큰, VIN, 세션 키, 차량 상태를 저장하지 않습니다.
+- 차량 API 프록시는 요청 사이에 토큰, VIN, 세션 키, 차량 상태를 저장하지 않습니다. 별도 수동 진단은 좌표/식별자/비밀값을 제외한 시각·속도·연결/하차 등의 상태를 최근5개3일 보관합니다. 제공업체 복구 이력은 최대30일 남을 수 있습니다.
 - 세션은 요청마다 새 routing address와 UUID로 생성합니다. 실제 Tesla 응답 호환성은 운영 검증이 필요합니다.
 
 ## 4. 보안·개인정보 기준 — 구현됐으나 검증 필요

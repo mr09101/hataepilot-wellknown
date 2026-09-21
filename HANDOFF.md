@@ -1,5 +1,15 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-21 차량 하차·수동 진단0.5.9 게시
+
+- 자체 브랜치 `codex/remote-diagnostics`, 기준 `70d4889ee9ed855942826ef215f7836277f66fff`. 정본 [진단 전송·조회 운영](updates/진단-전송과-조회-운영안내.md), 앱 `D:/AI PROJECT/tesla-drive-assist/docs/자동-안내와-서버-진단-구현검수-2026-09-21.md`. Git 마감 정보는 이 절에 이어 기록합니다. main/다른 AI 브랜치 직접 푸시·병합 없음.
+- 기존 Worker `hataepilot-updates`/`hataepilot.com/updates/*`에 수동 진단 경로와 SQLite `DiagnosticsInbox` migrationv2를 배포했습니다. 버전 **dec6a7d8-6dab-4560-aae1-7739e773d3f2**. 기존 OTA R2와 UpdateBudget v1은 유지했습니다.
+- 기기 암호는 POST만, 별도 관리자 암호는 GET/DELETE만. typed 최대128KiB/200events, 좌표/VIN/계정/키/음성 원문 제외. 저장 전 만료알람 확보, 최근5개3일 유지(provider PITR30일 고지), 실패/중복 포함20/일·200/월 업로드와100/일·1000/월 관리자 요청 제한. 원문 로그/자동 업로드/상시 감시 없음. DELETE는 전체기록이므로 한 건 삭제 요청에 임의 사용 금지.
+- `node --test tests/*.test.js` **98통과**, `scripts/test-diagnostics-runtime.mjs` 실제workerd/SQLite **10검사 통과**·차량 외부 요청0. `build/diagnostics-https-2026-09-21.json`의 실제HTTPS **13검사 통과**, 운영 조회CLI도 확인했습니다. 합성 보고서1건만 사용했고 새폰 전송은 미검증입니다. 독립 보안 검수 지적 반영 후 확정 잔여P1/P2 없음.
+- private Standard R2 정상 **0.5.9/code30**, 직전0.5.8 동작 복구 **0.5.9-recovery/code31** 게시 완료. 정상SHA `cf2512e726592cb188010f06b18a0e7868607e41967cbbb1dc7a4cd2c31852f1`/127230734bytes, 복구SHA `3974c1fcede1229213a4bf1325d975dd1dd414ae667a8635f09fe692f239a2e7`/126698664bytes. 최종3객체 **253930463bytes**, 앱과 동일 서명·카리나1872·보호6소스/비밀값 부재 검사 통과.
+- 실제 OTA HTTPS7검사: manifest200/원본일치·무인증/오인증401·Range416·SHA409·주차409·Origin403/no-store. 전체APK 다운로드0. 앱 `build/auto-drive-ota-publish-2026-09-21.log`, `build/auto-drive-ota-https-2026-09-21.json` 참조. 다음 정상code32 이상.
+- 폰은 마지막 사용자 로그0.5.8/code28, 새폰 설치/실차/실제복구 미검증. 카카오 SDK 지연·고가도로 매칭은 이번 서버 게시의 해결 범위가 아닙니다. 키·`.env`·APK·원시캡처·ROOT_AGENTS는 Git 제외입니다.
+
 ## 2026-09-15 과속 통과 이력 0.5.7 게시 마감
 
 앱 구현 d3bdfc6301ba8844769c99e1254312502e06b2f2. Claude 준비 파일을 Codex가 재검증·게시했습니다.
