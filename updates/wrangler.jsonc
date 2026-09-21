@@ -21,6 +21,10 @@
       {
         "name": "UPDATE_BUDGET",
         "class_name": "UpdateBudget"
+      },
+      {
+        "name": "DIAGNOSTICS_INBOX",
+        "class_name": "DiagnosticsInbox"
       }
     ]
   },
@@ -28,6 +32,10 @@
     {
       "tag": "v1",
       "new_sqlite_classes": ["UpdateBudget"]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": ["DiagnosticsInbox"]
     }
   ],
   "observability": {

@@ -1,4 +1,5 @@
 import { UpdateBudget } from "./budget.js";
+import { DiagnosticsInbox } from "./diagnostics-inbox.js";
 import {
   APK_KEYS,
   MANIFEST_KEY,
@@ -290,6 +291,7 @@ async function serveApk(request, env, url, releaseName) {
 
 export async function handleRequest(request, env) {
   const url = new URL(request.url);
+  if (url.pathname === "/updates/diagnostics") return serveDiagnostics(request, env, url);
   if (url.pathname === "/updates/" && request.method === "GET" && url.search === "") {
     return new Response(null, {
       status: 302,
@@ -305,6 +307,34 @@ export async function handleRequest(request, env) {
   return serveApk(request, env, url, releaseName);
 }
 
-export { UpdateBudget };
+async function serveDiagnostics(request, env, url) {
+  if (url.search) return jsonError(400, "invalid_query");
+  // Native client/operator only. No browser credentials, cookies, query tokens or CORS.
+  if (request.headers.has("origin")) return jsonError(403, "invalid_origin");
+  if (!["GET", "POST", "DELETE"].includes(request.method)) return jsonError(405, "method_not_allowed");
+  const expectedHash = request.method === "POST" ? env.UPDATE_TOKEN_SHA256 : env.DIAGNOSTICS_READ_TOKEN_SHA256;
+  if (!/^[0-9a-f]{64}$/.test(expectedHash ?? "") || !env.DIAGNOSTICS_INBOX?.idFromName || !env.DIAGNOSTICS_INBOX?.get) {
+    return jsonError(503, "diagnostics_not_configured");
+  }
+  const token = bearerToken(request);
+  if (!token || !await authenticateToken(token, expectedHash)) return unauthorized();
+  let body;
+  if (request.method === "POST") {
+    if (request.headers.get("content-type") !== "application/json") return jsonError(415, "invalid_content_type");
+    try { body = await readLimitedText(request, 128 * 1024); }
+    catch { return jsonError(413, "body_too_large"); }
+  } else if (request.body) return jsonError(400, "unexpected_body");
+  try {
+    const id = env.DIAGNOSTICS_INBOX.idFromName("hataepilot-diagnostics-inbox-v1");
+    const response = await env.DIAGNOSTICS_INBOX.get(id).fetch(new Request("https://diagnostics.invalid/reports", {
+      method: request.method, ...(body !== undefined ? { body, headers: { "Content-Type": "application/json" } } : {}),
+    }));
+    const headers = new Headers(response.headers);
+    for (const [key, value] of Object.entries(NO_STORE_HEADERS)) headers.set(key, value);
+    return new Response(response.body, { status: response.status, headers });
+  } catch { return jsonError(503, "diagnostics_unavailable"); }
+}
+
+export { UpdateBudget, DiagnosticsInbox };
 
 export default { fetch: handleRequest };
