@@ -1,5 +1,18 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-28 BLE 추적 기록·재요청 0.5.22 게시 (Claude)
+
+- 같은 기록 브랜치입니다. 서버 코드·Worker는 바꾸지 않았고 R2 세 객체만 교체했습니다.
+- 앱 소스는 `claude/ble-scan-location-fix` `52cfea0`입니다. BLE 추적 기록, 공식식 1회 재요청·수신 조립 복구, 인증 무응답 시 VCSEC 잠듦 확인, 설정 묶음·검색 개편이 들어갔습니다.
+- 올린 판:
+  - 정상 **0.5.22/code55**: SHA `49ce1487833e2203…`/128166709
+  - 복구 **0.5.22-recovery/code56**: 0.5.20 동작, 소스 `2bc53e8`, SHA `3b044bf89a6d9e59…`/127667347
+  - APK 합계 255834056bytes
+- 검증: 준비 검사(서명·카리나1872·DB/계정 6소스·비밀값 부재), dry-run(previous53→55/56), HTTPS 7검사, manifest 원본 일치가 모두 통과했습니다.
+- 로그는 앱 저장소의 `build/ble-trace-ota-{prepare2,dry-run2,publish}-2026-09-28.log`와 `build/ble-trace-ota-https-2026-09-28.json`입니다.
+- 앱 진단 전송에 BLE 기록을 넣으려면 `updates/src/diagnostics-schema.js`가 최상위 7개 항목만 허용하는 부분을 바꿔 배포해야 합니다. 주인님 확인 전이라 바꾸지 않았습니다.
+- 다음 정상판은 code57 이상이고, 토큰은 2026-10-10에 만료됩니다.
+
 ## 2026-09-27 주행 중 BLE 읽기 복구 0.5.20 게시 (Claude)
 
 - 같은 기록 브랜치입니다. 서버 코드·Worker는 바꾸지 않았고 R2 세 객체만 교체했습니다. 앱 소스는 `claude/ble-scan-location-fix` `2bc53e8`입니다(요청 묶음 응답 크기 초과 fault 25 수정).
