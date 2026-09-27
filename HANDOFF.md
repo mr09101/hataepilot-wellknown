@@ -1,5 +1,13 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-27 BLE 읽기 키 등록 수정·Fleet 거절 재확인 0.5.19 게시 (Claude)
+
+- 기록 브랜치 `claude/ota-release-record-2026-09-27`(기준 `codex/remote-diagnostics`). 서버 코드·Worker 배포는 바꾸지 않았고 R2 세 객체만 교체했습니다. 앱 소스는 `D:/AI PROJECT/tesla-drive-assist` `claude/ble-scan-location-fix` `9af2e13`, 정본 `docs/BLE-읽기키-등록-실패-원인과-수정-2026-09-27.md`.
+- 주인님 상시 지시(2026-09-27): 앱을 새로 빌드해 폰에 올릴 때마다 OTA 서버에도 게시합니다.
+- private Standard R2 정상 **0.5.19/code49**(0.5.18/47과 같은 코드), 직전 0.5.15 동작 복구 **0.5.19-recovery/code50**(소스 `8bb2dfe`) 게시 완료. 정상SHA `3dad2374b5d9b13d062581181529bd2a18eddac6d5147e7fa4f9f25877fd03e4`/128084789bytes, 복구SHA `88cee17758b9fad6…`/127650991bytes(전체 값은 앱 `build/ota-ble-key-fleet-recheck-2026-09-27/manifest.json`). 최종3객체 **255737092bytes**. `prepare_ota_release.py`에서 동일 서명·카리나1872·DB/계정 6소스 동일·비밀값 부재가 통과했습니다.
+- dry-run(previous47→49/50) 뒤 `--publish --confirm-account-free-headroom`으로 게시했습니다. 기존 두 APK를 비슷한 크기로 교체해 저장량은 약 1.8MB 늘었습니다. 실제 OTA HTTPS 7검사(manifest200/원본일치·무인증/오인증401·Range416·SHA409·주차409·Origin403/no-store)가 통과했고, 전체 APK 다운로드는 0입니다. PowerShell 7이 없어 같은 검사를 앱 `build/verify_ble_key_ota_2026-09-27.py`(Python)로 했습니다. 로그는 앱 `build/ble-key-ota-{prepare,dry-run,publish}-2026-09-27.log`, `build/ble-key-ota-https-2026-09-27.json`입니다.
+- 폰은 USB로 설치한 0.5.18/47입니다. 49 USB 설치는 폰이 분리돼 중단했습니다(대기 명령 중지). 앱 `설정 → 앱 업데이트 · 복구`에서 무선 설치할 수 있고, 무선 설치·복구는 아직 미검증입니다. 다음 정상판은 code51 이상입니다. 게시·조회 토큰은 2026-10-10에 만료됩니다.
+
 ## 2026-09-21 차량 하차·수동 진단0.5.9 게시
 
 - 자체 브랜치 `codex/remote-diagnostics`, 기준 `70d4889ee9ed855942826ef215f7836277f66fff`. 정본 [진단 전송·조회 운영](updates/진단-전송과-조회-운영안내.md), 앱 `D:/AI PROJECT/tesla-drive-assist/docs/자동-안내와-서버-진단-구현검수-2026-09-21.md`. 구현 **`ab7e56e647105be966951fedde16b587c6defcd9`** 원격 푸시 및 [서버 초안 PR #2](https://github.com/mr09101/hataepilot-wellknown/pull/2)(base `codex/guidance-ota-release-record`) 생성 완료. 앱 구현 `0a70e89db7015066e341473d82c71b4eafdf5bda`/[앱 초안 PR #12](https://github.com/mr09101/tesla-drive-assist/pull/12). 후속 기록 커밋은 `git log -1`과 앱 FINAL_KEEP 검증정보의 `serverRecordCommit`을 따릅니다. main/다른 AI 브랜치 직접 푸시·병합 없음.
