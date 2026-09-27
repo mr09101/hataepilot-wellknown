@@ -1,5 +1,11 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-27 주행 중 BLE 읽기 복구 0.5.20 게시 (Claude)
+
+- 같은 기록 브랜치입니다. 서버 코드·Worker는 바꾸지 않았고 R2 세 객체만 교체했습니다. 앱 소스는 `claude/ble-scan-location-fix` `2bc53e8`입니다(요청 묶음 응답 크기 초과 fault 25 수정).
+- 정상 **0.5.20/code53** SHA `07b4e6b8e51fb218…`/128084789, 복구 **0.5.20-recovery/code54**(0.5.15 동작, 소스 `8bb2dfe`) SHA `5be2ed782562166d…`/127650991을 올렸습니다. 최종 3객체 **255737082bytes**. 준비 검사(서명·카리나1872·DB/계정 6소스·비밀값 부재), dry-run(previous51→53/54), HTTPS 7검사, manifest 원본 일치가 모두 통과했습니다. 로그는 앱 `build/ble-split-ota-{prepare,dry-run,publish}-2026-09-27.log`, `build/ble-split-ota-https-2026-09-27.json`입니다.
+- 폰에도 53을 설치해 게시 current와 SHA가 일치합니다. 다음 정상판은 code55 이상, 토큰 만료는 2026-10-10입니다.
+
 ## 2026-09-27 BLE 읽기 키 등록 수정·Fleet 거절 재확인 0.5.19 게시 (Claude)
 
 - 기록 브랜치 `claude/ota-release-record-2026-09-27`(기준 `codex/remote-diagnostics`). 서버 코드·Worker 배포는 바꾸지 않았고 R2 세 객체만 교체했습니다. 앱 소스는 `D:/AI PROJECT/tesla-drive-assist` `claude/ble-scan-location-fix` `9af2e13`, 정본 `docs/BLE-읽기키-등록-실패-원인과-수정-2026-09-27.md`.
