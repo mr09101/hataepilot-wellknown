@@ -14,6 +14,10 @@ export const PUBLIC_ASSETS = Object.freeze([
   "data/cameras.db",
   "data/cameras.json",
   "data/rear_cameras.json",
+  "site/home.jpg",
+  "site/ledger.jpg",
+  "site/stats.jpg",
+  "site/camera-alert.jpg",
 ]);
 
 function assertInside(parent, candidate) {
