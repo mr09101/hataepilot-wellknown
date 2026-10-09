@@ -13,6 +13,10 @@ const EXPECTED_ASSETS = [
   "data/cameras.json",
   "data/rear_cameras.json",
   "index.html",
+  "site/camera-alert.jpg",
+  "site/home.jpg",
+  "site/ledger.jpg",
+  "site/stats.jpg",
 ];
 
 async function filesBelow(directory, prefix = "") {

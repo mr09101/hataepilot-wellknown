@@ -20,7 +20,7 @@
     color: var(--ink);
     font: 16px/1.65 "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   }
-  main { max-width: 760px; margin: 0 auto; padding: 72px 24px 48px; }
+  main { max-width: 860px; margin: 0 auto; padding: 72px 24px 48px; }
   .tag {
     display: inline-block;
     font-size: 13px;
@@ -50,6 +50,11 @@
   dt { color: var(--muted); }
   dd { margin: 0; }
   a { color: var(--ink); text-underline-offset: 3px; }
+  .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .shots figure { margin: 0; }
+  .shots img { width: 100%; height: auto; display: block; border-radius: 18px; border: 1px solid #2a2d33; box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+  .shots figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
+  @media (max-width: 640px) { .shots { grid-template-columns: repeat(2, 1fr); } }
   .en { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
   footer { margin-top: 48px; font-size: 13px; color: var(--muted); }
   @media (max-width: 480px) {
@@ -73,6 +78,14 @@
     <li><strong>휴대폰에서 차로 목적지 보내기</strong><span>휴대폰에서 고른 장소를 차량 내비게이션으로 보냅니다.</span></li>
     <li><strong>차계부</strong><span>주행 기록을 자동으로 남기고 정리합니다.</span></li>
   </ul>
+
+  <h2>앱 화면</h2>
+  <div class="shots">
+    <figure><img src="/site/home.jpg" width="540" height="1170" alt="하태파일럿 홈 화면" loading="lazy"><figcaption>홈</figcaption></figure>
+    <figure><img src="/site/camera-alert.jpg" width="540" height="1170" alt="단속 알림 설정 화면" loading="lazy"><figcaption>단속 알림</figcaption></figure>
+    <figure><img src="/site/ledger.jpg" width="540" height="1170" alt="차계부 화면" loading="lazy"><figcaption>차계부</figcaption></figure>
+    <figure><img src="/site/stats.jpg" width="540" height="1170" alt="주행 통계 화면" loading="lazy"><figcaption>통계</figcaption></figure>
+  </div>
 
   <h2>만드는 방식</h2>
   <p>1인 개발로 기획, 코딩, 테스트, 배포까지 진행하고 있으며, 무선 업데이트로 테스트 빌드를 배포합니다.</p>
