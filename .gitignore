@@ -7,3 +7,6 @@ node_modules/
 *private*.pem
 build/
 __pycache__/
+
+# wrangler dev 로컬 비밀값(카카오 키 등)
+.dev.vars

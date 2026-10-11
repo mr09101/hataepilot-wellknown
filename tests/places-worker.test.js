@@ -119,4 +119,6 @@ test("결과는 10개까지만 보낸다", () => {
   const documents = Array.from({ length: 15 }, (_, index) => kakaoDocument({ place_name: `장소${index}` }));
   assert.equal(mapKakaoPlaces({ documents }).length, 10);
   assert.equal(parsePlacesQuery(new URL(`https://x.invalid/?q=${"가".repeat(80)}`)).query.length, 60);
+  assert.equal(parsePlacesQuery(new URL("https://x.invalid/?q=%EA%B0%95%EB%82%A8%EC%97%AD%0A%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4")).query,
+    "강남역 스타벅스", "줄바꿈은 지우지 않고 띄어 쓴다(두 낱말이 붙으면 엉뚱한 곳이 나온다)");
 });

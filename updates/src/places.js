@@ -13,7 +13,8 @@ const INVISIBLE = /[\p{Cc}\p{Cf}]/gu;
 
 function cleanText(value, maxChars) {
   if (typeof value !== "string") return "";
-  const text = value.replace(INVISIBLE, "").replace(/\s+/gu, " ").trim();
+  // 줄바꿈·탭은 지우지 않고 공백으로 바꾼다("강남역\n스타벅스"가 붙지 않게, 코드 검수 LOW).
+  const text = value.replace(/\s+/gu, " ").replace(INVISIBLE, "").trim();
   return [...text].slice(0, maxChars).join("").trim();
 }
 
