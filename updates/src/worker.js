@@ -1,5 +1,6 @@
 import { UpdateBudget } from "./budget.js";
 import { DiagnosticsInbox } from "./diagnostics-inbox.js";
+import { parsePlacesQuery, searchKakaoPlaces } from "./places.js";
 import {
   APK_KEYS,
   MANIFEST_KEY,
@@ -292,6 +293,7 @@ async function serveApk(request, env, url, releaseName) {
 export async function handleRequest(request, env) {
   const url = new URL(request.url);
   if (url.pathname === "/updates/diagnostics") return serveDiagnostics(request, env, url);
+  if (url.pathname === "/updates/places") return servePlaces(request, env, url);
   if (url.pathname === "/updates/" && request.method === "GET" && url.search === "") {
     return new Response(null, {
       status: 302,
@@ -333,6 +335,30 @@ async function serveDiagnostics(request, env, url) {
     for (const [key, value] of Object.entries(NO_STORE_HEADERS)) headers.set(key, value);
     return new Response(response.body, { status: response.status, headers });
   } catch { return jsonError(503, "diagnostics_unavailable"); }
+}
+
+/**
+ * 앱 "목적지 보내기"의 장소 검색. 기기 암호(업데이트와 같은 토큰)가 있어야 하고, 앱만 쓴다(브라우저 Origin 거절).
+ * 업데이트·복구용 사용량 한도와 섞지 않는다. 검색이 많아도 복구 다운로드가 막히면 안 되기 때문이다. 한도는 카카오 무료 쿼터가 맡는다.
+ */
+async function servePlaces(request, env, url) {
+  if (request.headers.has("origin")) return jsonError(403, "invalid_origin");
+  if (request.method !== "GET") return jsonError(405, "method_not_allowed", { Allow: "GET" });
+  if (request.body) return jsonError(400, "unexpected_body");
+  if (!/^[0-9a-f]{64}$/.test(env?.UPDATE_TOKEN_SHA256 ?? "") || !/^[0-9a-f]{32}$/.test(env?.KAKAO_LOCAL_REST_API_KEY ?? "")) {
+    return jsonError(503, "places_not_configured");
+  }
+  if (!await authorizedBearer(request, env)) return unauthorized();
+  const params = parsePlacesQuery(url);
+  if (!params) return jsonError(400, "invalid_query");
+  const result = await searchKakaoPlaces(params, env.KAKAO_LOCAL_REST_API_KEY);
+  if (result.status === "quota") return jsonError(429, "quota_exceeded");
+  if (result.status === "misconfigured") return jsonError(503, "places_not_configured");
+  if (result.status !== "ok") return jsonError(502, "places_unavailable");
+  return new Response(JSON.stringify({ ok: true, places: result.places }), {
+    status: 200,
+    headers: { ...NO_STORE_HEADERS, "Content-Type": "application/json; charset=utf-8" },
+  });
 }
 
 export { UpdateBudget, DiagnosticsInbox };
