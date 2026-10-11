@@ -68,7 +68,7 @@ test("근처 매장을 앞에 두려고 위치를 보내되 약 1km로 줄여 �
     assert.equal(sent.searchParams.get("x"), "128.62");
     assert.equal(sent.searchParams.get("sort"), null, "거리순은 장소 이름 검색을 망쳐 정확도순(기본)을 쓴다");
     assert.equal(calls[0].init.headers.Authorization, `KakaoAK ${kakaoKey}`);
-    assert.equal(calls[0].init.redirect, "error");
+    assert.equal(calls[0].init.redirect, "manual", "다른 주소로 넘어가지 않는다(Workers는 error를 못 써 manual로 받고 3xx는 실패)");
   });
   await withFetch(() => Response.json({ documents: [] }), async (calls) => {
     assert.equal((await handleRequest(request("?q=물치항&lat=35.68&lon=139.69"), env())).status, 200);
@@ -104,6 +104,7 @@ test("카카오 한도 초과는 429, 키·권한 문제는 503, 연결 실패·
     [() => new Response("{}", { status: 429 }), 429],
     [() => new Response("{}", { status: 403 }), 503],
     [() => new Response("{}", { status: 500 }), 502],
+    [() => new Response(null, { status: 302, headers: { Location: "https://evil.invalid/" } }), 502],
     [() => { throw new TypeError("network"); }, 502],
     [() => new Response("x".repeat(300 * 1024), { headers: { "Content-Type": "application/json" } }), 502],
     [() => Response.json({ unexpected: true }), 502],

@@ -352,6 +352,8 @@ async function servePlaces(request, env, url) {
   const params = parsePlacesQuery(url);
   if (!params) return jsonError(400, "invalid_query");
   const result = await searchKakaoPlaces(params, env.KAKAO_LOCAL_REST_API_KEY);
+  // 실패 이유 코드만 남긴다(상태 코드·예외 이름). 검색어·위치·키·토큰은 남기지 않는다.
+  if (result.status !== "ok") console.warn(JSON.stringify({ event: "places_upstream_failed", reason: result.reason }));
   if (result.status === "quota") return jsonError(429, "quota_exceeded");
   if (result.status === "misconfigured") return jsonError(503, "places_not_configured");
   if (result.status !== "ok") return jsonError(502, "places_unavailable");

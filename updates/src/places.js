@@ -104,7 +104,10 @@ async function readLimited(response, maximumBytes) {
   return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
 }
 
-/** 결과: ok(places), quota(카카오 한도 초과), misconfigured(키·권한 문제), unavailable(그 밖). 카카오 원문은 앱에 넘기지 않는다. */
+/**
+ * 결과: ok(places), quota(카카오 한도 초과), misconfigured(키·권한 문제), unavailable(그 밖). 카카오 원문은 앱에 넘기지 않는다.
+ * 실패에는 [reason](상태 코드·예외 이름만)을 붙인다. 검색어·위치·키는 담지 않는다(배포 첫날 502 원인 확인용, 2026-10-12).
+ */
 export async function searchKakaoPlaces(params, apiKey, fetchImpl = fetch) {
   const url = new URL(KAKAO_KEYWORD_URL);
   url.searchParams.set("query", params.query);
@@ -118,21 +121,23 @@ export async function searchKakaoPlaces(params, apiKey, fetchImpl = fetch) {
   try {
     response = await fetchImpl(url.toString(), {
       headers: { Authorization: `KakaoAK ${apiKey}` },
-      redirect: "error",
+      // Workers에서 redirect "error"는 fetch가 TypeError로 실패했다(10/12 배포 기록). "manual"로 받고 3xx는 아래에서 실패로 본다.
+      redirect: "manual",
       signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     });
-  } catch {
-    return { status: "unavailable" };
+  } catch (error) {
+    return { status: "unavailable", reason: `fetch_${error?.name ?? "error"}` };
   }
   if (!response.ok) {
     try { await response.body?.cancel(); } catch { /* Ignored. */ }
-    if (response.status === 429) return { status: "quota" };
-    if (response.status === 401 || response.status === 403) return { status: "misconfigured" };
-    return { status: "unavailable" };
+    const reason = `status_${response.status}`;
+    if (response.status === 429) return { status: "quota", reason };
+    if (response.status === 401 || response.status === 403) return { status: "misconfigured", reason };
+    return { status: "unavailable", reason };
   }
   try {
     return { status: "ok", places: mapKakaoPlaces(JSON.parse(await readLimited(response, UPSTREAM_MAX_BYTES))) };
-  } catch {
-    return { status: "unavailable" };
+  } catch (error) {
+    return { status: "unavailable", reason: `body_${error?.name ?? "error"}_${String(error?.message ?? "").slice(0, 40)}` };
   }
 }
