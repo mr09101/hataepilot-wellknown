@@ -1,5 +1,28 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-10-12 앱 "목적지 보내기" 장소 검색 통로 `/updates/places` 배포, 0.5.37 게시 (Claude)
+
+- **새 경로:** `GET /updates/places?q=..[&lat=..&lon=..]` (`updates/src/places.js`, `worker.js`의 `servePlaces`)
+  - 기기 암호 Bearer(UPDATE_TOKEN_SHA256)가 필요하고, Origin·POST·본문은 거절합니다.
+  - 카카오 로컬 키워드 검색을 대신 부르며, 위치는 국내일 때만 약 1km로 반올림합니다.
+  - 응답은 `{ok, places:[{name,address,lat,lon,distanceM,category}]}`이고 10개까지입니다.
+  - 오류 코드: 429 quota_exceeded, 503 places_not_configured, 502 places_unavailable
+- **비밀값:** Worker secret `KAKAO_LOCAL_REST_API_KEY`(카카오맵 무료 쿼터를 가진 "공유지도" 앱의 REST 키). 원천은 `D:\AI PROJECT\.env.local`이고, Python이 stdin으로 `wrangler secret put`에 넘겼습니다. 값은 출력하지 않았습니다.
+- **배포:** `updates`에서 `npx --yes wrangler@4 deploy`(OAuth, keyring). 최종 버전 ID는 `79d09276`입니다.
+- **함정:** Workers fetch에서 `redirect: "error"`는 TypeError로 실패했습니다(Node 테스트는 통과). `"manual"`로 받고 3xx는 실패로 처리합니다.
+  - 원인은 `wrangler tail --format json`과 이유 코드 로그(`places_upstream_failed`, 상태 코드·예외 이름만)로 찾았습니다.
+- **PC에서 확인하는 법:**
+  - 기기 암호 `HATAEPILOT_UPDATE_TOKEN`은 앱 `.env.local`에 있습니다.
+  - Python 기본 User-Agent는 Cloudflare 1010으로 막혀, 앱과 비슷한 UA(Dalvik)로 호출합니다.
+- **검수:** 코드·보안 SAFE. 디버깅 수정분의 로그 본문 조각을 지적받아 고친 뒤 SAFE.
+  - 남은 일 [MEDIUM]: 서버 하루 상한이 없습니다(토큰이 새면 공유지도 무료 쿼터가 소진될 수 있음).
+- **커밋:** `ff82168`, `c5a57a5`(LOW 반영·`.dev.vars` 제외), `cf55b13`(redirect manual·이유 로그), `521b18b`(로그 본문 조각 제거). `npm test` 106개 통과했습니다.
+- **OTA 0.5.37 게시:**
+  - 정상 **0.5.37/code85**: SHA `7caa6d3b3c4f7198…`/128478617
+  - 복구 **code86**: 0.5.20 `2bc53e8`, SHA `72c4038a08c41994…`
+  - dry-run(83→85/86), HTTPS 7검사, manifest 일치를 통과했습니다. 폰 미연결로 설치 전입니다.
+  - 다음 정상판은 code87 이상입니다.
+
 ## 2026-10-08 OTA 게시 토큰 만료일 연장 (주인님, Claude 확인)
 
 - 10/10 만료 예정이던 두 R2 토큰의 만료일을 주인님이 대시보드에서 늘렸습니다. 값은 그대로라 `.env.local`은 바꾸지 않았습니다.
