@@ -138,6 +138,8 @@ export async function searchKakaoPlaces(params, apiKey, fetchImpl = fetch) {
   try {
     return { status: "ok", places: mapKakaoPlaces(JSON.parse(await readLimited(response, UPSTREAM_MAX_BYTES))) };
   } catch (error) {
-    return { status: "unavailable", reason: `body_${error?.name ?? "error"}_${String(error?.message ?? "").slice(0, 40)}` };
+    // 파싱 오류 메시지에는 응답 본문 조각이 들어간다(재검수). 우리가 정한 고정 코드만 남긴다.
+    const code = /^(?:too_large|invalid_upstream)$/u.test(error?.message ?? "") ? `_${error.message}` : "";
+    return { status: "unavailable", reason: `body_${error?.name ?? "error"}${code}` };
   }
 }

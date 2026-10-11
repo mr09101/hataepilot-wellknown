@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import test from "node:test";
 
 import { handleRequest } from "../updates/src/worker.js";
-import { mapKakaoPlaces, parsePlacesQuery } from "../updates/src/places.js";
+import { mapKakaoPlaces, parsePlacesQuery, searchKakaoPlaces } from "../updates/src/places.js";
 
 // 앱 홈 "목적지 보내기"의 장소 검색(2026-10-12). 카카오 키는 서버에만 있고, 기기 암호가 있어야 쓴다.
 const token = Buffer.alloc(32, 7).toString("base64url");
@@ -114,6 +114,15 @@ test("카카오 한도 초과는 429, 키·권한 문제는 503, 연결 실패·
       assert.equal((await handleRequest(request("?q=물치항"), env())).status, status);
     });
   }
+});
+
+test("실패 이유 로그에는 카카오 응답 본문 조각을 남기지 않는다(파싱 오류 메시지에 본문이 들어간다)", async () => {
+  const html = async () => new Response("<!DOCTYPE html><html>secret-body</html>", { headers: { "Content-Type": "text/html" } });
+  const failed = await searchKakaoPlaces({ query: "물치항", near: null }, "k", html);
+  assert.equal(failed.status, "unavailable");
+  assert.equal(failed.reason, "body_SyntaxError");
+  const odd = await searchKakaoPlaces({ query: "물치항", near: null }, "k", async () => Response.json({ unexpected: true }));
+  assert.equal(odd.reason, "body_Error_invalid_upstream", "우리가 정한 고정 코드는 남긴다");
 });
 
 test("결과는 10개까지만 보낸다", () => {
