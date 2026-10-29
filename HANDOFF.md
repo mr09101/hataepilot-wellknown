@@ -1,5 +1,103 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-09-15 과속 통과 이력 0.5.7 게시 마감
+
+앱 구현 d3bdfc6301ba8844769c99e1254312502e06b2f2. Claude 준비 파일을 Codex가 재검증·게시했습니다.
+
+- 기존 private Standard R2/Worker의 current.apk·recovery.apk·manifest.json **3개 게시 완료**. 정상 **0.5.7/code26**, 복구 **0.5.7-recovery/code27**(직전0.5.6.1 동작, 소스 8d0d1492969e01697fea88d4a47b6ca3b9d8fd3f). APK 합계 **253,700,022 bytes** + manifest **1,044 bytes** = **finalBytes 253,701,066**. 다음 정상판은 **code28 이상**입니다.
+- 정상 SHA-256 `47c46abb7bbe973a17bcabac031b3c436afe834a48113ff680ba22c8d82ae1f2` / 127,099,662 bytes. 복구 SHA-256 `8cf717006db62c02d9f9c64c9bd840c06d3813e47803c0a8feca2c4cfb27e4d4` / 126,600,360 bytes. manifest SHA-256 `cfa9cad6aa20ae97925cc8c0dbd3f34f06caa2f6e948736b9e4bd8e8faf4e0ae`. FINAL_KEEP의 두 APK도 직접 해시 대조했습니다.
+- 실제 APK 패키지·버전·minSdk·비디버그·서명·SHA/bytes dry-run → private/Standard·고정키·용량 사전검사 → APK checksum/HEAD → manifest 마지막 게시 → finalKeys 3개/finalBytes 일치 확인. 준비 검증 기록의 카리나1,872개·보호6소스·비밀값 부재 결과를 보존했습니다.
+- **09:19 KST HTTPS7개 PASS**: 무인증/오인증401, manifest200/로컬 JSON 내용 일치, Range416, 잘못된SHA409, 주차 미확인409, 다른Origin403. 전부 no-store. 전체 APK HTTPS 다운로드는 하지 않았습니다. 서버 제품·인증·권한·요금제·한도는 그대로이며 대상 버킷 용량 검사가 계정 전체 무료량을 보장하지는 않습니다.
+- ADB 재조회 **0대**로 정상26 설치·새 화면·실차·복구27 설치 미검증. 마지막 확인 설치는 2026-09-14의 code24이며 현재 폰 버전은 미확인입니다. 실제 차량 명령·키 등록·룰 저장·유료 API 호출 없음. 제품 코드 추가 변경과 P2·P3는 미착수입니다.
+- 기존 JUnit XML 재집계 **501/59 suites, 실패·오류·skip0**, lint XML 오류0/경고89/힌트5. 제품 코드가 바뀌지 않아 Gradle/서버 Node 단위를 반복 실행하지 않았습니다.
+- 증거 절대 루트 D:/AI PROJECT/tesla-drive-assist: `build/overspeed-history-ota-dry-run-codex-path-2026-09-15.log`, `build/overspeed-history-ota-publish-2026-09-15.log`, `build/overspeed-history-ota-https-2026-09-15.json`. 최종 문서 커밋/원격 확인은 각 저장소 `git log -1`과 `FINAL_KEEP/과속-통과-이력-검증정보-2026-09-15.json`의 publication 항목을 따릅니다.
+- 정본 D:/AI PROJECT/tesla-drive-assist/docs/과속-통과-이력-구현과-검수-2026-09-15.md. 사용자 지정 서버 codex/guidance-ota-release-record/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)의 HANDOFF만 갱신합니다. 인수 HEAD cfa9b9adcf1937ad60440ce7e7246b9851724ce8. 앱 문서는 지정 claude/overspeed-pass-history/[초안 PR #10](https://github.com/mr09101/tesla-drive-assist/pull/10). main 푸시·병합, 시크릿·APK·원시 캡처 커밋 없음.
+
+## 2026-09-14 연결 폰 보완0.5.6.1 게시
+
+앱 구현·기기 검수 커밋 `224a846c56cb2f0bec6552b5204ed07b65c6b5a8`, 앱 기록 최종 `8d0d1492969e01697fea88d4a47b6ca3b9d8fd3f`.
+
+- 기존 private Standard R2/Worker 고정3객체를 정상0.5.6.1/code24·안정0.5.5동작 복구0.5.6.1-recovery/code25로 갱신했습니다. 총252410425bytes, 다음 정상판code26 이상. 기존서명/카리나1872/보호6소스/비밀값부재 확인. 정상SHA `95e5ba36e5dd0445a0b53cd3f3c0ec506dfa8773ce9f029c4bac6e2d684ac1a1`, 복구SHA `7f39465e47d536ad00d2694fb57ff794fc7e9bf29e47346ae6da675fc7f9f033`.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시→실제HTTPS manifest원본일치·401/416/409/403/no-store 통과. 전체 APK GET은 반복하지 않았고 제품/인증/요금제/권한/한도 변경 없음. 서버 제품 변경이 없어 서버 단위검사는 반복하지 않았습니다.
+- 연결 폰에 정상24를 데이터 유지 설치하고 동일해시·1프로필/1런처·비디버그·시험도구 제거·화면복원 확인. code22의 기기83검사와 최종24의 일반/큰글씨/넓은화면 검수 통과. 실제 차량 키 등록·속도 수신은 미실행입니다.
+- 앱 자체 `codex/tesla-ble-speed`/[초안 PR #8](https://github.com/mr09101/tesla-drive-assist/pull/8). 정본 `D:\AI PROJECT\tesla-drive-assist\docs\차량-BLE-속도-구현과-검수-2026-09-14.md`, 증거 앱 `build/tesla-ble-phone-2026-09-14/validation.json`, `build/tesla-ble-phone-ota-https-2026-09-14.json`. 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 반영합니다. 시작HEAD `955d6f0945604c2a9a4b5fee92e8e0b8146f02c5`, 최종해시는 git log -1/앱FINAL_KEEP JSON을 참조합니다. main/다른AI 브랜치 직접 푸시/병합·시크릿/APK 커밋 없음.
+
+## 2026-09-14 차량 BLE 속도0.5.6 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.6/code22**, 직전0.5.5 동작 복구 **0.5.6-recovery/code23**을 게시했습니다. 앱 구현 `21322b7b79d42df6b3cf34106b2dcbeb5abbdf41`/[초안 PR #8](https://github.com/mr09101/tesla-drive-assist/pull/8), 자체 `codex/tesla-ble-speed`, 복구 소스 `ba15d2f6147afd8a07cff7b8c76dc6f8570cc279`. 다음 정상판code24 이상.
+- 두 APK 252392961bytes, manifest 포함 **252394026bytes**. 정상SHA `32e579db2f6d952f6856bac9649b0c19eb8da246e5389a2347bf9b4671da0ad0`/127001358bytes, 복구SHA `8a42639647bae039d7302815d94f7ec29a06dab7b9f3bd578440bce1c9c0b8af`/125391603bytes. 기존 서명·암호화 서명 백업·카리나1872개·보호6소스 일치·설정된 비밀값 APK 탐지0.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시·최종3객체 확인. 실제HTTPS manifest200/원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. APK 전체 HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 서버 제품/인증/권한/요금제/한도 변경 없음.
+- 앱 JUnit483/57 suites·debug/debugAndroidTest/personal/복구·lint오류0·독립 UI/보안 코드 재검수. ADB0/에뮬레이터 부재로 새 화면·기기 설치·실제 Keystore/GATT/카드 승인/속도 수신·화면OFF/폰키 공존·복구 설치 미검증. BLE는 사용자 물리 승인 기반 첫 등록 TOFU와 후속 pin이며 새 서버/Fleet API 호출은 없습니다. 에이전트가 실제 차량 명령·등록을 실행하지 않았습니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\차량-BLE-속도-구현과-검수-2026-09-14.md`. 앱 증거 `build/ota-tesla-ble-speed-2026-09-14/release-verification.json`, `build/tesla-ble-speed-ota-publish-2026-09-14.log`, `build/tesla-ble-speed-ota-https-2026-09-14.json`, `build/tesla-ble-speed-2026-09-14/validation.json`.
+- 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD `6c936d3d70ad1728b04474b04d533d6008e36fa2`. 제품 변경이 없어 서버 단위는 반복하지 않고 실제 게시/HTTPS 경계를 검증했습니다. 최종 해시는 git log -1/앱FINAL_KEEP JSON을 참조합니다. 시크릿/APK Git 제외·main 직접 푸시/병합 없음.
+
+## 2026-09-14 장소 주소·지도0.5.5 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.5/code20**, 직전0.5.4 동작 복구 **0.5.5-recovery/code21**을 게시했습니다. 앱 구현 `18994edb41239e80bfc897761f7ff1fba4dde0e6`/[초안 PR #7](https://github.com/mr09101/tesla-drive-assist/pull/7), 자체 브랜치 `codex/places-address-map`, 복구 소스 `e34a9e5f48406937ff9bc28304bdc72ace60b077`. 다음 정상판code22 이상.
+- 두 APK251167820bytes, manifest 포함 **251168841bytes**. 정상SHA `b6e5ffed30ad51afc248595c5a3d9ac0e0c14abb8e2c0524824352b1716ee0f0`/125808985bytes, 복구SHA `3622d9662e8321a6ef9ad1a9c38227e5a6dfec62b705bc2d9557724c61dbfb70`/125358835bytes. 동일 서명·카리나1872개·보호6소스 일치·설정된 비밀값 APK 탐지0.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시→고정3객체 검증. 실제HTTPS manifest200/원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 전체 APK HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 서버 제품/인증/권한/요금제/한도 변경 없음.
+- 앱 JUnit466/55 suites·debug/debugAndroidTest/personal/복구·lint오류0·독립 UI/개인정보 재검수. ADB0/에뮬레이터 부재로 새폰 설치·실제 주소/지도/화면·복구 설치 미검증. 차량 속도는 공식 BLE/Telemetry 경로 조사만 수행, 새 차량 키/호출/서버 없음.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\장소-화면-검수와-테슬라-속도연동-2026-09-14.md`. 앱 증거 `build/ota-places-address-map-2026-09-14/release-verification.json`, `build/places-address-map-ota-publish-2026-09-14.log`, `build/places-address-map-ota-https-2026-09-14.json`, `build/places-address-map-2026-09-14/validation.json`.
+- 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD `e3c07f2120db329321b86e3b88e63bf0feff92ba`. 제품 코드 변경이 없어 서버 단위는 반복하지 않고 기존 게시기와 실제HTTPS를 검증했습니다. 최종 해시는 git log -1/앱FINAL_KEEP JSON을 참조합니다. 시크릿/APK Git 제외·main 직접 푸시/병합 없음.
+
+## 2026-09-14 휴대폰 진단 기록0.5.4 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상 **0.5.4/code18**, 직전0.5.3 동작 복구 **0.5.4-recovery/code19**를 게시했습니다. 앱 구현 `8a2513f74ce137ab820e9de8b6ef6053d8803ea3`/[초안 PR #6](https://github.com/mr09101/tesla-drive-assist/pull/6), 브랜치 `codex/phone-diagnostics-media`, 시작/복구 `2a8f68939816508cb7c6ee2aec0e883384e24b83`. 실제 일반폰 설치·추출 APK SHA 일치 및 임시 시험 앱 제거까지 확인했습니다. 다음 정상판code20 이상.
+- 두 APK251102288bytes, manifest 포함 **251103325bytes**. 정상SHA `b0752efff8c327785f702063b8f271a091538fd7c5ac0d749d9b47c008625335`/125776217bytes, 복구SHA `8fcf99998a17fdbbe109f888693a362e44a9311da6e0053a61b7d0f70fc2c6be`/125326071bytes. 기존 서명·카리나1872파일·보호6소스 일치/설정된 비밀값 APK 탐지0.
+- preflight/dry-run→APK checksum/HEAD→manifest마지막 게시→최종3객체 확인. 실제HTTPS manifest200/로컬 원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 전체 APK HTTPS GET은 한도 보존을 위해 반복하지 않았습니다.
+- 서버 제품·인증·권한·요금제·한도는 그대로이며 로그 자동 업로드는 추가하지 않았습니다. 앱 로컬 진단과 사용자 선택 TXT 저장만 추가했습니다. 실제 버벅임/YouTube 원인 확정, 실차/복구판 설치는 남았습니다. Grok 보안 별도 항목 전체를 해결했다고 주장하지 않습니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\휴대폰-버벅임과-안내로그-수정검수-2026-09-14.md`. 앱 증거 `build/phone-diagnostics-2026-09-14/validation.json`, `build/ota-phone-diagnostics-2026-09-14/release-verification.json`, `build/phone-diagnostics-ota-publish-2026-09-14.log`, `build/phone-diagnostics-ota-https-2026-09-14.json`.
+- 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD `4298d203ed864136fe8713e6190968b99353453d`, 최종 해시는 git log -1/앱FINAL_KEEP 검증정보 참조. 서버 제품 변경이 없어 전체 단위는 반복하지 않고 실제 게시/HTTPS를 검증했습니다. 키·암호·APK는 Git 제외, main 직접 푸시·병합 없음.
+
+## 2026-09-13 터널 GPS 구간단속 수정0.5.3 게시
+
+앱 구현 `4afb1637cb6518128697a7b3d661edf1622df238`, 복구 소스 `22ce18fb7c521c8106bb998132a9c9197d5a0a3a`(직전0.5.2), [앱 초안 PR #5](https://github.com/mr09101/tesla-drive-assist/pull/5).
+
+- 정상 **0.5.3/code16**, 복구 **0.5.3-recovery/code17**(직전 정상0.5.2 동작)을 기존 private Standard R2/Worker에 게시했습니다. 고정3객체 251,054,140bytes. 다음 정상판은 code18 이상 필요합니다.
+- personal/복구 빌드·기존 v2 서명·암호화 서명 백업·카리나1872파일 동일·보호 DB/계정/설정6소스 동일·설정된 비밀값 APK 탐지0 확인. 정상SHA `c0547eb70c009476b015bbdf416e557e8f14fed54b6dae3f06836e8c23aae497`/125743449bytes, 복구SHA `da5ea21c028d1a0c08146903bc9f4b2e1ad6a728d68fbebfd47d4da4f2c5ce6a`/125309683bytes.
+- dry-run→APK checksum/HEAD→manifest마지막 게시 후 실제HTTPS manifest200/원본일치·무인증/오인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 서버 제품/인증/권한/요금제/한도 변경 없음. APK 전체HTTPS 다운로드는 한도 보존을 위해 반복하지 않았습니다.
+- 증거: 앱 `build/ota-tunnel-section-2026-09-13/release-verification.json`, `build/tunnel-section-ota-publish-2026-09-13.log`, `build/tunnel-section-ota-https-2026-09-13.json`. 실제 폰 새설치·일반/큰글꼴/넓은Android/TalkBack·통화·실제터널·화면OFF·복구설치는 미검증입니다.
+
+서버 제품코드 변경 없이 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[초안 PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작HEAD2aac6e5, 최종커밋은 git log -1/앱FINAL_KEEP JSON 참조. 서버단위는 코드변경이 없어 반복하지 않았으며 기존 게시기와 운영HTTPS를 검증했습니다. 정본 `D:\AI PROJECT\tesla-drive-assist\docs\터널-GPS-구간단속-수정검수-2026-09-13.md`. 키/암호/APK는Git제외.
+
+
+## 2026-09-13 P단·반대편 카메라 수정0.5.2 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상0.5.2/code14·복구0.5.2-recovery/code15를 게시했습니다. 앱 구현 `e1cf97d5ba71d3e31c2beea26cf06a0ba37617b3`, 복구소스 `9f4920701ffb981ae1f469c005f2b023d26f11e1`(직전 정상0.5.1), [앱 초안 PR #4](https://github.com/mr09101/tesla-drive-assist/pull/4). 서버 제품코드/인증/권한/요금제/한도 변경 없음. 다음 정상판code16 이상.
+- dry-run→checksum/HEAD→manifest마지막→3객체 251,021,357bytes(두APK 251,020,368bytes) 확인. 실제HTTPS manifest200/원본일치·인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 새 APK 전체HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 새폰/실차/복구 설치 미검증.
+- 정상SHA `33af1dfbd8de350e222d0ce70c1d3169279224b09fb7f3311786a0b8227b5c4c`/125727065bytes, 복구SHA `50063af682f63a1fdb6812014e39bf92f85352baf8eaaf167f6e9e8390e1f5b8`/125293303bytes. 앱 `build/ota-park-camera-2026-09-13/release-verification.json`, `park-camera-ota-publish-2026-09-13.log`, `park-camera-ota-https-2026-09-13.json`이 증거입니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\P단-도착과-반대편카메라-수정검수-2026-09-13.md`. 서버는 HANDOFF만 기존 `codex/guidance-ota-release-record`/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작fee6eb8, 최종커밋은 git log -1/앱 FINAL_KEEP JSON 참조. 제품 변경이 없어 서버 전체 단위는 반복하지 않고 기존 게시기/실제HTTP를 검증했습니다. 키/암호/APK Git 제외.
+
+
+## 2026-09-13 BT 도착 오판 수정0.5.1 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3객체에 정상0.5.1/code12·복구0.5.1-recovery/code13을 게시했습니다. 앱 구현f2e594eff614ca16a985abae94a243cececc8792, 복구소스824b7dc42b037a995b4fceace38849645569e423(직전0.5), [앱 초안 PR #3](https://github.com/mr09101/tesla-drive-assist/pull/3). 서버 제품코드/인증/권한/요금제 변경 없음. 다음 정상판code14 이상.
+- dry-run→checksum/HEAD→manifest마지막→고정3객체/250988619bytes 확인(두APK 250987596bytes). 실제HTTPS manifest200/원본일치·인증401/Range416/SHA409/주차409/Origin403/no-store 통과. 새 APK 전체 HTTPS GET은 한도 보존을 위해 반복하지 않았습니다. 실제 새폰·실차·복구 설치 미검증.
+- 정상SHA f77b5c6ccad0979523020dd9d07b9b54bd8d129c749f187eab19d10b9fba964f/125710681bytes, 복구SHA 74af49312cf6e9d29098954f42402c74cdf120726bb1df54f96f3987d328d222/125276915bytes. 앱 build/ota-bluetooth-handover-2026-09-13/release-verification.json, bluetooth-handover-ota-publish-2026-09-13.log, bluetooth-handover-ota-https-2026-09-13.json 참조.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\블루투스-전환-도착오판-수정과-검수-2026-09-13.md`. 서버는 이 HANDOFF만 기존 codex/guidance-ota-release-record/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 커밋·푸시합니다. 시작a7c91e5, 최종커밋은 git log -1/앱 FINAL_KEEP JSON 참조. 서버 제품코드 변경이 없어 전체 단위는 반복하지 않고 기존 게시기/실제HTTP를 검증했습니다. 키/암호/APK Git 제외.
+
+## 2026-09-12 차계부 상세0.5 게시
+
+- 기존 승인된 private Standard R2/Worker 고정3경로에 정상0.5/code10·복구0.5-recovery/code11을 게시했습니다. 앱 구현 `ef52e700a28f309b3c0e87dedc4f2a926d09dd56`, 복구 소스0.4.1 `5b72bee8ce6b09e8567161e3dbfd727436ada877`, [앱 초안 PR #2](https://github.com/mr09101/tesla-drive-assist/pull/2). 서버 제품코드/인증/권한/요금제 변경 없음. 다음 정상판은code12 이상입니다.
+- dry-run→APK checksum/HEAD→manifest마지막→고정3객체/250792011bytes(두 APK250790992bytes) 확인. 실제HTTPS manifest200/원본일치·인증401·Range416·SHA409·주차409·Origin403/no-store 통과. 새 APK 전체 HTTPS 다운로드는 사용자 한도를 남기기 위해 반복하지 않았으며 이번 검증 다운로드 쿼터0회입니다. 실제 새폰/실차/복구 설치는 미검증입니다.
+- 정상SHA `c996f59f892ee4840824d0dbacccdb3c9f937af2b608f5254c16adb1fde5756f`/125694301bytes, 복구SHA `1cebe55ff1d1d930ccea69da160e830683cd25d396b23bf1486e8c48a5c6759e`/125096691bytes. 증거는 앱 `build\ota-trip-details-2026-09-12\release-verification.json`, `build\trip-details-ota-publish-2026-09-12.log`, `build\trip-details-ota-https-2026-09-12.json`입니다.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\차계부-상세기록-구현과-검수-2026-09-12.md`. 서버는 이 HANDOFF만 기존 `codex/guidance-ota-release-record`/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 기록하며 main 직접 푸시 없음. 시작 기록커밋c9eec45, 최종 커밋은 git log -1 및 앱 FINAL_KEEP JSON을 참조합니다. 제품 코드 변경이 없어 서버 전체 단위는 반복하지 않았고 기존 게시기 계약·실제HTTP를 검증했습니다. 키/암호/APK는 Git 제외입니다.
+
+## 2026-09-12 단속 안내창 여백 수정판0.4.1 게시
+
+- 기존 승인된 private Standard R2/Worker에 정상0.4.1/code8·복구0.4.1-recovery/code9를 게시했습니다. 서버 제품 코드·인증·권한·요금제 변경 없음. 앱 구현 `a822740afcfc4a95e1f9a191941f43553e8c37ee`, 복구 소스0.4 `225b37fc2e82b68655d18d986647ebba2a590afc`. 다음 정상판code10 이상.
+- 게시기 dry-run→APK checksum/HEAD→manifest마지막→고정3객체/250611751bytes 확인. 실제 HTTPS manifest200/원본일치·인증401·Range416·SHA409·주차409·Origin403/no-store 확인. 작은 화면 수정이므로 설치 파일 다운로드 한도를 남기기 위해 새 APK 전체 HTTPS 다운로드는 반복하지 않았습니다(이번 다운로드 쿼터0회). 실제 폰 화면·새 설치·복구 설치는 미검증입니다.
+- 정상SHA `6424584d810786596e9847e8d060c996f72c7bc5af8717bea836d6127757e175`/125514073bytes, 복구SHA `9a23590149f219e08800b94f039c956784c1ee68db81f99010a192a6be920438`/125096695bytes. 앱 증거 `D:\AI PROJECT\tesla-drive-assist\build\hud-spacing-ota-publish-2026-09-12.log`, `hud-spacing-ota-https-2026-09-12.json`, `ota-hud-spacing-2026-09-12\release-verification.json`.
+- 정본 `D:\AI PROJECT\tesla-drive-assist\docs\단속표지-여백-조정-2026-09-12.md`, 앱 [PR #1](https://github.com/mr09101/tesla-drive-assist/pull/1). 서버는 이 HANDOFF만 `codex/guidance-ota-release-record` 브랜치/[PR #1](https://github.com/mr09101/hataepilot-wellknown/pull/1)에 기록하며 main 직접 푸시 없음. 시작 기록 커밋5bb7916, 최종 커밋은 git log -1 참조. 제품 코드 변경이 없어 서버 전체 단위는 반복하지 않았고 게시기 검증·실제 HTTP를 실행했습니다. 키/암호/APK는 Git 제외.
+
+## 2026-09-12 안내 오탐·통화 HUD 수정판0.4 게시
+
+- 기존 승인된 private Standard R2/Worker 경로에 정상0.4/code6·복구0.4-recovery/code7을 게시했습니다. 서버 소스/인증/권한/요금제 변경 없음. 고정3객체·250529778bytes이며 APK checksum/HEAD 검증 뒤 manifest를 마지막으로 게시했습니다.
+- 정상판 인증 HTTPS200·원본SHA/크기 일치, manifest200/원본 일치, 인증401·Range416·SHA409·주차409·Origin403/no-store 확인. 다운로드 한도1회 사용, 복구판은 PUT/HEAD·로컬 서명 검증까지이며 실제 폰/복구 설치는 미실행입니다.
+- 앱 구현 `a24c1862e86993fc451034a73b911495e2353675`, 전용 브랜치 `codex/guidance-diagnostics-direction-call`, 앱 [PR #1](https://github.com/mr09101/tesla-drive-assist/pull/1). 정상SHA `d0082ee7cbdcc7cdeb2dc99305b57118e8de13ef8861b62a40bcd88eab79a193`/125514077bytes, 복구SHA `8435fab0c5ec62820b204a29df44d4d54f5926a0045e9c5f762c5fef430eb608`/125014771bytes.
+- 복구 소스는 앱0.3 `9837bd87b1be40b177d35ba9ff6b47bf06a56f92`이며 다음 정상판code8 이상. 정본 `D:\AI PROJECT\tesla-drive-assist\docs\안내-오탐과-통화-진단개선-2026-09-11.md`. 증거는 앱 `build\guidance-ota-publish-2026-09-12.log`·`guidance-ota-https-2026-09-12.json`·`ota-guidance-fix-2026-09-12\release-verification.json`.
+- 서버 기록 브랜치 `codex/guidance-ota-release-record`, 시작 `550e931daa69a2fcfe26807738ad13c189e970cc`. 이 HANDOFF만 검증·커밋·브랜치 푸시/PR, main 직접 푸시 없음. 서버 제품 코드가 바뀌지 않아 Node 전체 단위는 반복하지 않았고 실제 게시기 계약 dry-run/게시/HTTPS를 확인했습니다. 최종 기록 커밋은 `git log -1` 참조. 키/암호/APK/개인 상태는 커밋하지 않습니다.
+
 ## 2026-09-10 상단 대기 알림 수정판0.3 재게시
 
 - 기존 승인된 private R2/Worker/개인 암호 경로에 정상0.3/code4·복구0.3-recovery/code5를 재게시했습니다. 서버 코드/권한/인증/요금제 변경 없음. 고정3객체·250431430bytes, APK 업로드 checksum/HEAD 확인 후 manifest를 마지막에 게시했습니다.
