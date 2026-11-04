@@ -8,6 +8,7 @@ on:
       - "index.html"
       - "site/**"
       - "app-recovery/**"
+      - "business/**"
       - "_headers"
       - ".well-known/**"
       - "data/**"

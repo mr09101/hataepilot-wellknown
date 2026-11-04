@@ -9,6 +9,7 @@ const EXPECTED_ASSETS = [
   ".well-known/appspecific/com.tesla.3p.public-key.pem",
   "_headers",
   "app-recovery/index.html",
+  "business/index.html",
   "data/cameras.db",
   "data/cameras.json",
   "data/rear_cameras.json",

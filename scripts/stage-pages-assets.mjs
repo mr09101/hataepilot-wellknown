@@ -9,6 +9,7 @@ export const PAGES_ASSET_OUTPUT = path.resolve(PROJECT_ROOT, "build", "pages-ass
 export const PUBLIC_ASSETS = Object.freeze([
   "index.html",
   "app-recovery/index.html",
+  "business/index.html",
   "_headers",
   ".well-known/appspecific/com.tesla.3p.public-key.pem",
   "data/cameras.db",
