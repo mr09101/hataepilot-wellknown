@@ -1,5 +1,13 @@
 # 하태파일럿 서버 작업 인수인계
 
+## 2026-11-04 Meta 비즈니스 인증용 사업자 정보 페이지
+
+- `business/index.html`(/business/)을 추가했습니다. 상호·대표·사업자등록번호·업종·사업장 주소·개업일·이메일, 운영 서비스(하태파일럿, 료카), 료카 정책 링크(privacy/terms/data-deletion)를 한국어·영어로 표기합니다. 스크립트·폼·이미지 없이 meta CSP(`default-src 'none'; style-src 'unsafe-inline'`)와 no-referrer를 사용합니다. 주민등록번호 등 다른 개인정보는 넣지 않습니다.
+- `index.html`, `app-recovery/index.html`, `business/index.html` 푸터에 '운영: 김현성 | 사업자등록번호 878-06-03886'과 `/business/` 링크를 한 줄 추가했습니다. 기존 문구·스크립트는 그대로입니다.
+- `scripts/stage-pages-assets.mjs` PUBLIC_ASSETS와 `tests/deployment-boundary.test.js` 고정 목록, `deploy-pages.yml` 트리거에 business 경로를 추가했고 `tests/business-page.test.js`를 새로 만들었습니다.
+- 검증: `npm test` 93/93 PASS, `node scripts/stage-pages-assets.mjs` 실행 후 `build/pages-assets/business/index.html` 생성 확인. 구현 커밋 `75e0409`(로컬, 미푸시). 배포는 사용자가 직접 진행합니다.
+- 주의: 사업자 페이지 이메일은 요청대로 `ilos1212@gmail.com`이고 소개 페이지 연락처는 `contact@hataepilot.com`입니다. Meta가 도메인 일치 이메일을 요구하면 이 부분을 먼저 확인합니다.
+
 ## 2026-09-10 상단 대기 알림 수정판0.3 재게시
 
 - 기존 승인된 private R2/Worker/개인 암호 경로에 정상0.3/code4·복구0.3-recovery/code5를 재게시했습니다. 서버 코드/권한/인증/요금제 변경 없음. 고정3객체·250431430bytes, APK 업로드 checksum/HEAD 확인 후 manifest를 마지막에 게시했습니다.
